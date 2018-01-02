@@ -8,5 +8,6 @@ namespace SantaTecla.WPF.ViewModels
 {
     class Login
     {
+        //
     }
 }
