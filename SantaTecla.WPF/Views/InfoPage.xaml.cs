@@ -22,6 +22,14 @@ namespace SantaTecla.WPF.Views
         public InfoPage()
         {
             InitializeComponent();
+            finalizar.Click += Finalizar_Click;
+        }
+
+        private void Finalizar_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage login = new LoginPage();
+            login.Show();
+            this.Close();
         }
     }
 }

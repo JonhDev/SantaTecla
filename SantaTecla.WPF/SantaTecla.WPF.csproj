@@ -54,7 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\Commands\LoginCommand.cs" />
+    <Compile Include="ViewModels\ControlWindow.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="Views\CookInfoPage.xaml.cs">
       <DependentUpon>CookInfoPage.xaml</DependentUpon>
@@ -67,6 +67,9 @@
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OptionDr.xaml.cs">
+      <DependentUpon>OptionDr.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RecepcionWindow.xaml.cs">
       <DependentUpon>RecepcionWindow.xaml</DependentUpon>
@@ -114,6 +117,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OptionDr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

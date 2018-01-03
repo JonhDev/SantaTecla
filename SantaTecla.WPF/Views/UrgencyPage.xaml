@@ -22,9 +22,9 @@
                    Margin="0,0,0,30"/>
 
             <Label Margin="10,0,10,0" Content="Describa por que el paciente fue trasladado a urgencias:"/>
-            <TextBox Margin="10,0,10,0" Height="200"/>
+            <TextBox Margin="10,0,10,0" Height="200" x:Name="info"/>
             
-            <Button Content="Agregar reporte" Margin="0,10,0,0" Width="120"/>
+            <Button Content="Agregar reporte" Margin="0,10,0,0" Width="120" Click="Button_Click"/>
         </StackPanel>
         
         

@@ -30,15 +30,15 @@
                 <Label Content="Recepcion"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="+"/>
-                    <Label Content="Agregar paciente"/>
+                    <Button Content="Agregar paciente " x:Name="agregar"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="+"/>
-                    <Label Content="Ingrese numero de paciente"/>
+                    <Button Content="consultar informacion de paciente " x:Name="consulta"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="+"/>
-                    <Label Content="Actualizar informacion de paciente"/>
+                    <Button Content="Actualizar informacion de paciente " x:Name="actualizar"></Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

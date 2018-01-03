@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaTecla.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,23 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class RegisterPage : Window
     {
+        ControlWindow control = new ControlWindow();
         public RegisterPage()
         {
             InitializeComponent();
+            agregar.Click += Agregar_Click;
+        }
+
+        private void Agregar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(nombre.Text) || !String.IsNullOrEmpty(direccion.Text))
+            {
+                this.Hide();
+                control.Show(1);
+                this.Close();
+            }
+            else
+                MessageBox.Show("informacion faltante");
         }
     }
 }

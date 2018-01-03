@@ -33,7 +33,7 @@
 
                 <Label Margin="20,0,0,0" Content="A continuacion se recomendara una dieta especial para el paciente"/>
 
-                <Button Content="Generar reporte" Margin="0,40,0,0" Width="100"/>
+                <Button Content="Generar reporte" Margin="0,40,0,0" Width="100" x:Name="generar"/>
             </StackPanel>
         </Grid>
     </Grid>

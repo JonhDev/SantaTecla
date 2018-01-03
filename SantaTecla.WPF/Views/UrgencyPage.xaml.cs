@@ -19,9 +19,24 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class UrgencyPage : Window
     {
+        
         public UrgencyPage()
         {
             InitializeComponent();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(info.Text))
+            {
+                MessageBox.Show("Listo");
+                LoginPage login = new LoginPage();
+                login.Show();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Cuadro vacio");
         }
     }
 }

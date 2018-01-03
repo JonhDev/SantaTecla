@@ -1,5 +1,4 @@
-﻿using SantaTecla.WPF.ViewModels.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,29 +9,34 @@ namespace SantaTecla.WPF.ViewModels
 {
     public class Login
     {
-        public string User { get; set; }
-        public string Password { get; set; }
-        public string Visible { get; set; }
-        public LoginCommand Display { get; private set; }
-        public Login()
+        public int Access(string user, string password)
         {
-            Display = new LoginCommand(Execute,CanExecute);
+            switch (user)
+            {
+                case "dr":
+                    if (password == "238")
+                        return 10;
+                    break;
+                case "Diet":
+                    if (password == "531")
+                        return 4;
+                    break;
+                case "enfermero":
+                    if (password == "242")
+                        return 7;
+                    break;
+                case "recep":
+                    if (password == "092")
+                        return 1;
+                    break;
+                case "Pcook":
+                    if (password == "123")
+                        return 5;
+                    break;
+            }
+
+            return 0;
         }
-
-        public bool CanExecute(object param)
-        {
-            return true;
-        }
-
-        public void Execute(object param)
-        {
-            User = "asdfasdfasdf";
-            Password="asdfasdfasdf2";
-            
-            MessageBox.Show("");
-        }
-
-
 
     }
 }

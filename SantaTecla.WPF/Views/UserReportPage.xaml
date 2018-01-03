@@ -24,10 +24,9 @@
                 <DatePicker HorizontalAlignment="Right" Margin="10,0,15,0"/>
 
                 <Label Margin="10,0,10,0" Content="Diagnostico paciente:"/>
-                <TextBox Margin="10,0,10,0" Height="200"/>
+                <TextBox Margin="10,0,10,0" Height="200" x:Name="diagnostico"/>
 
-                <Button Content="Listo" Margin="0,10,0,0" Width="100"/>
-                <Button Content="Consultar parciente" Margin="0,10,0,0" Width="150" />
+                <Button Content="Listo" Margin="0,10,0,0" Width="100" x:Name="listo" />
             </StackPanel>
         </Grid>
     </Grid>

@@ -21,10 +21,29 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class LoginPage : Window
     {
+        Login log = new Login();
+        int key;
         public LoginPage()
         {
             InitializeComponent();
-            DataContext = new Login();
+            
+        }
+
+        private void aceptar_Click(object sender, RoutedEventArgs e)
+        {
+            key = log.Access(usr.Text, pass.Text);
+
+            if (key !=0 )
+            {
+                MessageBox.Show("BIENVENIDO");
+                this.Hide();
+                ControlWindow control = new ControlWindow();
+                control.Show(key);
+                this.Close();
+            }
+            else
+                MessageBox.Show("usuario invalido");
+
         }
     }
 }
