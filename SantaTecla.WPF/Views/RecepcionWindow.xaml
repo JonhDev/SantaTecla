@@ -26,7 +26,7 @@
         </Grid>
         
         <Grid Grid.Row="1">
-            <StackPanel>
+            <StackPanel Margin="0,0,0,-20">
                 <Label Content="Recepcion"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="+"/>
@@ -35,6 +35,10 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="+"/>
                     <Label Content="Ingrese numero de paciente"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="+"/>
+                    <Label Content="Actualizar informacion de paciente"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="Views\CookInfoPage.xaml.cs">
       <DependentUpon>CookInfoPage.xaml</DependentUpon>
