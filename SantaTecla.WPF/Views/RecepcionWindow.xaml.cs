@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaTecla.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,27 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class RecepcionWindow : Window
     {
+        ControlWindow control = new ControlWindow();
         public RecepcionWindow()
         {
             InitializeComponent();
+            agregar.Click += Agregar_Click;
+            actualizar.Click += Agregar_Click;
+            consulta.Click += Consulta_Click;
+        }
+
+        private void Consulta_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            control.Show(3);
+            this.Close();
+        }
+
+        private void Agregar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            control.Show(2);
+            this.Close();
         }
     }
 }

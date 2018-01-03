@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaTecla.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,20 +16,39 @@ using System.Windows.Shapes;
 namespace SantaTecla.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for CookInfoPage.xaml
+    /// Lógica de interacción para OptionDr.xaml
     /// </summary>
-    public partial class CookInfoPage : Window
+    public partial class OptionDr : Window
     {
-        public CookInfoPage()
+        ControlWindow control = new ControlWindow();
+        public OptionDr()
         {
             InitializeComponent();
+
+            reporte.Click += Reporte_Click;
+            consulta.Click += Consulta_Click;
             cerrar.Click += Cerrar_Click;
+
+        }
+
+        private void Consulta_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            control.Show(3);
+            this.Close();
         }
 
         private void Cerrar_Click(object sender, RoutedEventArgs e)
         {
             LoginPage login = new LoginPage();
             login.Show();
+            this.Close();
+        }
+
+        private void Reporte_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            control.Show(8);
             this.Close();
         }
     }

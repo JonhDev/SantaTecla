@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaTecla.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,24 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class UserPage : Window
     {
+        ControlWindow control = new ControlWindow();
         public UserPage()
         {
             InitializeComponent();
+            consulta.Click += Consulta_Click;
+        }
+
+        private void Consulta_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(paciente.Text))
+            {
+                this.Hide();
+                control.Show(9);
+                this.Close();
+
+            }
+            else
+                MessageBox.Show("ingrese paciente");
         }
     }
 }

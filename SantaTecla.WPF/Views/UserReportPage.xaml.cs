@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaTecla.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,24 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class UserReportPage : Window
     {
+        ControlWindow Control = new ControlWindow();
         public UserReportPage()
         {
             InitializeComponent();
+            listo.Click += Listo_Click;
+        }
+
+        private void Listo_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(diagnostico.Text))
+            {
+                MessageBox.Show("LISTO");
+                this.Hide();
+                Control.Show(10);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Cuadro vacio");
         }
     }
 }

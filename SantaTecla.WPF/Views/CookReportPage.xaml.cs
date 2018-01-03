@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaTecla.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,18 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class CookReportPage : Window
     {
+        ControlWindow Control = new ControlWindow();
         public CookReportPage()
         {
             InitializeComponent();
+            generar.Click += Generar_Click;
+        }
+
+        private void Generar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Control.Show(5);
+            this.Close();
         }
     }
 }
