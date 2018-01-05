@@ -33,7 +33,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="Numero del paciente:"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="Cunata con seguro social:"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Cuenta con seguro social:"/>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">
                     <CheckBox VerticalAlignment="Center"/>
                     <Label Content="Cuenta con servicio social:"/>
@@ -47,7 +47,7 @@
 
             </Grid>
             
-            <Button Height="30" Width="100" Margin="0,20,0,0" Content="Siguiente"/>
+            <Button Height="30" Width="100" Margin="0,20,0,0" Content="Listo" x:Name="aceptar"/>
 
         </StackPanel>
         

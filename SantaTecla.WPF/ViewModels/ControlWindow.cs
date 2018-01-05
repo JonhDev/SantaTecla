@@ -10,6 +10,15 @@ namespace SantaTecla.WPF.ViewModels
 {
     public class ControlWindow
     {
+        int aux;
+        public ControlWindow(int aux)
+        {
+            this.aux = aux;
+        }
+        public ControlWindow()
+        {
+
+        }
         
         public void Show(int key)
         {
@@ -58,6 +67,14 @@ namespace SantaTecla.WPF.ViewModels
                 case 11:
                     PaymentPage pay = new PaymentPage();
                     pay.Show();
+                    break;
+                case 12:
+                    PharmacyPage pharmacy = new PharmacyPage();
+                    pharmacy.Show();
+                    break;
+                case 13:
+                    MedicinePage medicine = new MedicinePage(aux);
+                    medicine.Show();
                     break;
                 default:
                     MessageBox.Show("Error");

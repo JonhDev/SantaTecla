@@ -28,6 +28,11 @@ namespace SantaTecla.WPF.Views
                 "Tarjeta",
                 "Efectivo"
             };
+
+            aceptar.Click +=(sourse,e)=>
+            {
+                Close();
+            };
         }
     }
 }

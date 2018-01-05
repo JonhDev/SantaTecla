@@ -68,8 +68,14 @@
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MedicinePage.xaml.cs">
+      <DependentUpon>MedicinePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OptionDr.xaml.cs">
       <DependentUpon>OptionDr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PharmacyPage.xaml.cs">
+      <DependentUpon>PharmacyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RecepcionWindow.xaml.cs">
       <DependentUpon>RecepcionWindow.xaml</DependentUpon>
@@ -120,7 +126,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MedicinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\OptionDr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PharmacyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
