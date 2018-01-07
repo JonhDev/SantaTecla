@@ -1,0 +1,17 @@
+﻿<Window x:Class="SantaTecla.WPF.Views.PharmacyPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        mc:Ignorable="d"
+        Title="PharmacyPage" Height="300" Width="300">
+    <Grid>
+        <Button Content="Consultar Prescripcion" HorizontalAlignment="Left" Margin="80,49,0,0" VerticalAlignment="Top" Width="133" x:Name="CPrescripcion" Height="29"/>
+        <Button Content="Consultar Medicamento" HorizontalAlignment="Left" Margin="80,103,0,0" VerticalAlignment="Top" Width="132" x:Name="CMedicamento" Height="29"/>
+        <Button Content="Agregar Medicamentos" HorizontalAlignment="Left" Margin="80,154,0,0" VerticalAlignment="Top" Width="131" x:Name="AMedicamento" Height="29"/>
+        <Button Content="Salir" HorizontalAlignment="Left" Margin="106,207,0,0" VerticalAlignment="Top" Width="75" Height="29" x:Name="salir"/>
+
+
+    </Grid>
+</Window>

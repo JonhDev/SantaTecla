@@ -25,6 +25,12 @@ namespace SantaTecla.WPF.Views
         {
             InitializeComponent();
             agregar.Click += Agregar_Click;
+            pago.Click += Pago_Click;
+        }
+
+        private void Pago_Click(object sender, RoutedEventArgs e)
+        {
+            control.Show(11);
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
