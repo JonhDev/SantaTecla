@@ -13,8 +13,7 @@ namespace WebApiSantaTecla.Models
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Puesto { get; set; }
-        public string Usuario { get; set; }
-        public string Contraseña { get; set; }
+        public Login Login { get; set; }
 
     }
 

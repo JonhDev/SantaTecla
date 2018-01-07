@@ -93,11 +93,17 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MedicamentosController.cs" />
+    <Compile Include="Controllers\PacientesController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Citas.cs" />
+    <Compile Include="Models\Historial.cs" />
+    <Compile Include="Models\Internado.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Medicamentos.cs" />
+    <Compile Include="Models\Pacientes.cs" />
     <Compile Include="Models\Personal.cs" />
     <Compile Include="Models\WebApiSantaTeclaContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
