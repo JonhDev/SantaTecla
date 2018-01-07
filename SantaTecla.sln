@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SantaTecla.Services", "Sant
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTecla.UnitTests", "SantaTecla.UnitTests\SantaTecla.UnitTests.csproj", "{B2AEBF5B-D854-467A-8542-45A9C7EA3A36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSantaTecla", "SantaTecla.WPF\WebApiSantaTecla\WebApiSantaTecla\WebApiSantaTecla.csproj", "{C9499918-F62A-4F95-AF2A-F2E16B295913}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSantaTecla", "WebApiSantaTecla\WebApiSantaTecla\WebApiSantaTecla.csproj", "{C9499918-F62A-4F95-AF2A-F2E16B295913}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

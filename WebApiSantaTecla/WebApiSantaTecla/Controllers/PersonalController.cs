@@ -13,21 +13,21 @@ using WebApiSantaTecla.Models;
 
 namespace WebApiSantaTecla.Controllers
 {
-    public class PersonalsController : ApiController
+    public class PersonalController : ApiController
     {
-        private WebApiSantaTeclaContext db = new WebApiSantaTeclaContext();
+        private PersonalDbContext db = new PersonalDbContext();
 
-        // GET: api/Personals
-        public IQueryable<Personal> GetPersonals()
+        // GET: api/Personal
+        public IQueryable<Personal> GetPersonal()
         {
-            return db.Personals;
+            return db.Personal;
         }
 
-        // GET: api/Personals/5
+        // GET: api/Personal/5
         [ResponseType(typeof(Personal))]
         public async Task<IHttpActionResult> GetPersonal(int id)
         {
-            Personal personal = await db.Personals.FindAsync(id);
+            Personal personal = await db.Personal.FindAsync(id);
             if (personal == null)
             {
                 return NotFound();
@@ -36,7 +36,7 @@ namespace WebApiSantaTecla.Controllers
             return Ok(personal);
         }
 
-        // PUT: api/Personals/5
+        // PUT: api/Personal/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutPersonal(int id, Personal personal)
         {
@@ -71,7 +71,7 @@ namespace WebApiSantaTecla.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Personals
+        // POST: api/Personal
         [ResponseType(typeof(Personal))]
         public async Task<IHttpActionResult> PostPersonal(Personal personal)
         {
@@ -80,23 +80,23 @@ namespace WebApiSantaTecla.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Personals.Add(personal);
+            db.Personal.Add(personal);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = personal.Id }, personal);
         }
 
-        // DELETE: api/Personals/5
+        // DELETE: api/Personal/5
         [ResponseType(typeof(Personal))]
         public async Task<IHttpActionResult> DeletePersonal(int id)
         {
-            Personal personal = await db.Personals.FindAsync(id);
+            Personal personal = await db.Personal.FindAsync(id);
             if (personal == null)
             {
                 return NotFound();
             }
 
-            db.Personals.Remove(personal);
+            db.Personal.Remove(personal);
             await db.SaveChangesAsync();
 
             return Ok(personal);
@@ -113,7 +113,7 @@ namespace WebApiSantaTecla.Controllers
 
         private bool PersonalExists(int id)
         {
-            return db.Personals.Count(e => e.Id == id) > 0;
+            return db.Personal.Count(e => e.Id == id) > 0;
         }
     }
 }
