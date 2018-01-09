@@ -23,7 +23,7 @@
                        Margin="0,0,0,30"/>
 
                 <Label Margin="10,0,10,0" Content="Informacion:"/>
-                <TextBox Margin="10,0,10,0" Height="200"/>
+                <TextBox x:Name="contradicciones" Margin="10,0,10,0" Height="200"/>
 
                 <Button Content="Cerrar" Margin="0,10,0,0" Width="100" x:Name="cerrar"/>
             </StackPanel>

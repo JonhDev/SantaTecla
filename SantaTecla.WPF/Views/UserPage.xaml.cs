@@ -32,6 +32,7 @@ namespace SantaTecla.WPF.Views
             if (!String.IsNullOrEmpty(paciente.Text))
             {
                 this.Hide();
+                StaticHelper.SelectedId = int.Parse(paciente.Text);
                 control.Show(9);
                 this.Close();
 

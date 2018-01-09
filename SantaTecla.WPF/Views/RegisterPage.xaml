@@ -43,13 +43,12 @@
 
                 <TextBox Grid.Row="0" Grid.Column="1" x:Name="nombre"/>
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                    <RadioButton Margin="10,0,10,0" GroupName="Sex" Content="Masculino"/>
-                    <RadioButton Margin="10,0,10,0" GroupName="Sex" Content="Femenino"/>
+                    <RadioButton x:Name="sexMasc" Margin="10,0,10,0" GroupName="Sex" Content="Masculino" IsChecked="True"/>
+                    <RadioButton x:Name="sexFem" Margin="10,0,10,0" GroupName="Sex" Content="Femenino"/>
                 </StackPanel>
-                <TextBox Grid.Row="2" Grid.Column="1"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="edad"/>
                 <TextBox Grid.Row="3" Grid.Column="1" x:Name="direccion"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,185,0"/>
-                <TextBox Grid.Row="5" Grid.Column="1"/>
+                <TextBox x:Name="historial" Grid.Row="5" Grid.Column="1"/>
                 <Button Content="Agregar" Grid.Column="1" HorizontalAlignment="Left" Margin="146,3,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" x:Name="pago"/>
 
             </Grid>

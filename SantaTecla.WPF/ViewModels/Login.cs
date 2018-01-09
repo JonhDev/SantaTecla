@@ -31,7 +31,7 @@ namespace SantaTecla.WPF.ViewModels
                     break;
                 case "Pcook":
                     if (password == "123")
-                        return 5;
+                        return 4;
                     break;
                 case "farmacia":
                     if (password == "098")

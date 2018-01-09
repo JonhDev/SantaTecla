@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SantaTecla.Services;
+using SantaTecla.WPF.ViewModels;
 
 namespace SantaTecla.WPF.Views
 {
@@ -23,6 +25,16 @@ namespace SantaTecla.WPF.Views
         {
             InitializeComponent();
             finalizar.Click += Finalizar_Click;
+            GetData();
+        }
+
+        private async Task GetData()
+        {
+            SantaTeclaService sev = new SantaTeclaService();
+            var paciente = await sev.GetPacienteById(StaticHelper.SelectedId);
+            string info =
+                $"Informacion del paciente: {paciente.Nombre} de {paciente.Edad} años\nANTECEDENTES\n{paciente.Historial.Antecendentes}\nCONTRADICCIONES\n{paciente.Historial.Contradicciones}";
+            infoText.Text = info;
         }
 
         private void Finalizar_Click(object sender, RoutedEventArgs e)

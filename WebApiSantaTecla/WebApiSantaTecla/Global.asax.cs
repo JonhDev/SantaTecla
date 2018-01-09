@@ -14,7 +14,7 @@ namespace WebApiSantaTecla
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            Database.SetInitializer<PacientesDbContext>(new DropCreateDatabaseIfModelChanges<PacientesDbContext>());
+           // Database.SetInitializer<PacientesDbContext>(new DropCreateDatabaseIfModelChanges<PacientesDbContext>());
         }
     }
 }

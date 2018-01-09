@@ -104,6 +104,7 @@
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Medicamentos.cs" />
     <Compile Include="Models\Pacientes.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Personal.cs" />
     <Compile Include="Models\WebApiSantaTeclaContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

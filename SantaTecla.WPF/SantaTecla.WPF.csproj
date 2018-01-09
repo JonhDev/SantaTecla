@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -56,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\ControlWindow.cs" />
     <Compile Include="ViewModels\Login.cs" />
+    <Compile Include="ViewModels\StaticHelper.cs" />
     <Compile Include="Views\CookInfoPage.xaml.cs">
       <DependentUpon>CookInfoPage.xaml</DependentUpon>
     </Compile>
@@ -185,6 +189,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -194,13 +199,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SantaTecla.Models\SantaTecla.Models.csproj">
+      <Project>{ca15b77a-b8c9-4a5e-a1fb-3ce7d602ad77}</Project>
+      <Name>SantaTecla.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SantaTecla.Services\SantaTecla.Services.csproj">
       <Project>{41a8fd61-7927-4264-9406-ac803ffc926a}</Project>
       <Name>SantaTecla.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-
-namespace WebApiSantaTecla.Models
+﻿
+namespace SantaTecla.Models
 {
     public class Pacientes
     {
-        [Key]
         public int NSS { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -22,8 +15,4 @@ namespace WebApiSantaTecla.Models
         public Payment FormaDePago { get; set; }
     }
 
-    class PacientesDbContext : DbContext
-    {
-        public DbSet<Pacientes> Pacientes { get; set; }
-    }
 }

@@ -32,21 +32,40 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="Numero del paciente:"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="Cuenta con seguro social:"/>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">
-                    <CheckBox VerticalAlignment="Center"/>
-                    <Label Content="Cuenta con servicio social:"/>
+                <Label Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" Content="Forma de pago:"/>
+                
+                
+                
+                
+                <StackPanel Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <RadioButton x:Name="Tarjeta" Padding="0,0,6,0" Content="Tarjeta credito/debito" GroupName="PaymentOptions"/>
+                    <RadioButton x:Name="Efectivo" Padding="6,0,6,0" Content="Efectivo" GroupName="PaymentOptions"/>
+                    <RadioButton x:Name="Seguro" Content="Seguro" GroupName="PaymentOptions"/>
                 </StackPanel>
                 
-                <TextBox Grid.Row="0" Grid.Column="1"/>
-                <TextBox Grid.Row="1" Grid.Column="1"/>
-                <TextBox Grid.Row="2" Grid.Column="1"/>
-                
-                <ListBox Grid.Row="3" Grid.Column="0" Margin="15" Height="30" x:Name="ListBoxPayment"></ListBox>
-
             </Grid>
             
+            <Grid x:Name="pagoTarjeta">
+                <StackPanel >
+                    <Label Content="Rellenese en caso de forma de pago con tarjeta"></Label>
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <Label  Content="Numero de tarjeta"/>
+                        <TextBox x:Name="TarjetaNum" Width="300"/>
+                    </StackPanel>
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <Label  Content="CVV"/>
+                        <TextBox x:Name="TarjetaCVV" Width="200"/>
+                        <Label  Content="Fecha"/>
+                        <TextBox x:Name="TarjetaFecha" Width="200"/>
+                    </StackPanel>
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <Label  Content="Nombre del titular"/>
+                        <TextBox x:Name="TarjetaTitular" Width="300"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            
+
             <Button Height="30" Width="100" Margin="0,20,0,0" Content="Listo" x:Name="aceptar"/>
 
         </StackPanel>

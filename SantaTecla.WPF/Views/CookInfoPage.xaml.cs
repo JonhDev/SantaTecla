@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SantaTecla.Services;
+using SantaTecla.WPF.ViewModels;
 
 namespace SantaTecla.WPF.Views
 {
@@ -25,8 +27,15 @@ namespace SantaTecla.WPF.Views
             cerrar.Click += Cerrar_Click;
         }
 
-        private void Cerrar_Click(object sender, RoutedEventArgs e)
+        private async void Cerrar_Click(object sender, RoutedEventArgs e)
         {
+            SantaTeclaService ser =  new SantaTeclaService();
+            var paciente = await ser.GetPacienteById(StaticHelper.SelectedId);
+            paciente.Historial.Contradicciones += "\n"+contradicciones.Text;
+            if (await ser.PutPaciente(StaticHelper.SelectedId, paciente))
+                MessageBox.Show("Guardado ");
+            else
+                MessageBox.Show("No se guardo");
             LoginPage login = new LoginPage();
             login.Show();
             this.Close();
