@@ -25,10 +25,18 @@ namespace SantaTecla.WPF.Views
         {
             InitializeComponent();
             finalizar.Click += Finalizar_Click;
-            GetData();
+            if (StaticHelper.Option1 == 12)
+            {
+                GetDataPac().GetAwaiter();
+            }
+            if (StaticHelper.Option1 == 13)
+            {
+                GetDataPer().GetAwaiter();
+            }
+            
         }
 
-        private async Task GetData()
+        private async Task GetDataPac()
         {
             SantaTeclaService sev = new SantaTeclaService();
             var paciente = await sev.GetPacienteById(StaticHelper.SelectedId);
@@ -37,11 +45,25 @@ namespace SantaTecla.WPF.Views
             infoText.Text = info;
         }
 
+        private async Task GetDataPer()
+        {
+            SantaTeclaService sev = new SantaTeclaService();
+            var personal = await sev.GetPersonalById(StaticHelper.SelectedId);
+            string info =
+                $"Informacion del personal: Nombre: {personal.Nombre} \n{personal.Apellidos} \npuesto: {personal.Puesto}\nUsuario{personal.Login.User}";
+            infoText.Text = info;
+        }
+
         private void Finalizar_Click(object sender, RoutedEventArgs e)
         {
-            LoginPage login = new LoginPage();
-            login.Show();
-            this.Close();
+            ControlWindow control = new ControlWindow();
+            if (StaticHelper.OptionReturn == 5)
+            {
+                Hide();
+                control.Show(14);
+                Close();
+            }
+            
         }
     }
 }

@@ -39,7 +39,7 @@
                     Height="20"
                     Width="100"
                     Margin="0,30,0,0" 
-                    x:Name="aceptar" Click="aceptar_Click"
+                    x:Name="aceptar" Click="Aceptar_Click"
                     />
         </StackPanel>
     </Grid>

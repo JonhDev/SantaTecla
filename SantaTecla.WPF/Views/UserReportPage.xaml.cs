@@ -24,6 +24,7 @@ namespace SantaTecla.WPF.Views
         public UserReportPage()
         {
             InitializeComponent();
+            
             listo.Click += Listo_Click;
         }
 
@@ -31,10 +32,12 @@ namespace SantaTecla.WPF.Views
         {
             if (!String.IsNullOrEmpty(diagnostico.Text))
             {
-                MessageBox.Show("LISTO");
-                this.Hide();
-                Control.Show(10);
-                this.Close();
+                if (StaticHelper.OptionReturn == 5)//NO esta lista
+                {
+                    this.Hide();
+                    Control.Show(14);
+                    this.Close();
+                }
             }
             else
                 MessageBox.Show("Cuadro vacio");

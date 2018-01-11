@@ -20,7 +20,7 @@ namespace SantaTecla.Services
             httpClient = new HttpClient();
         }
 
-        public async Task<Personal> AuthUser(string user, string password)
+        public async Task<string> AuthUser(string user, string password)
         {
             var answer = await httpClient.GetAsync(ConectionHelpers.MainURL+ConectionHelpers.PersonalURL);
             var json = await answer.Content.ReadAsStringAsync();
@@ -29,7 +29,7 @@ namespace SantaTecla.Services
             if (employee != null)
             {
                 if (employee.Login.Password == password)
-                    return employee;
+                    return employee.Puesto;
                 else
                     return null;
             }
@@ -49,12 +49,44 @@ namespace SantaTecla.Services
                 return false;
         }
 
+        public async Task<bool> PostPersonal(Personal newPersonal)
+        {
+            var json = JsonConvert.SerializeObject(newPersonal);
+            var answer =
+                await httpClient.PostAsync($"{ConectionHelpers.MainURL + ConectionHelpers.PersonalURL}",
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+            if (answer.IsSuccessStatusCode)
+                return true;
+            else
+                return false;
+        }
+
         public async Task<bool> PutPaciente(int idPaciente, Pacientes newPaciente)
         {
             var json = JsonConvert.SerializeObject(newPaciente);
             var answer =
                 await httpClient.PutAsync($"{ConectionHelpers.MainURL + ConectionHelpers.PacientesURL}{idPaciente}",
                     new StringContent(json, Encoding.UTF8, "application/json"));
+            if (answer.IsSuccessStatusCode)
+                return true;
+            else
+                return false;
+        }
+
+        public async Task<bool> DeletePaciente(int idPaciente)
+        {
+            var answer =
+                await httpClient.DeleteAsync(ConectionHelpers.MainURL+ConectionHelpers.PacientesURL+idPaciente);
+            if (answer.IsSuccessStatusCode)
+                return true;
+            else
+                return false;
+        }
+
+        public async Task<bool> DeletePersonal(int idPersonal)
+        {
+            var answer =
+                await httpClient.DeleteAsync(ConectionHelpers.MainURL + ConectionHelpers.PersonalURL + idPersonal);
             if (answer.IsSuccessStatusCode)
                 return true;
             else
@@ -74,6 +106,13 @@ namespace SantaTecla.Services
             var json = await answer.Content.ReadAsStringAsync();
             var lista = JsonConvert.DeserializeObject<List<Pacientes>>(json);
             return lista.FirstOrDefault(paciente => paciente.NSS == nss);
+        }
+        public async Task<Personal> GetPersonalById(int id)
+        {
+            var answer = await httpClient.GetAsync(ConectionHelpers.MainURL + ConectionHelpers.PersonalURL);
+            var json = await answer.Content.ReadAsStringAsync();
+            var lista = JsonConvert.DeserializeObject<List<Personal>>(json);
+            return lista.FirstOrDefault(personal => personal.Id == id);
         }
 
         public async Task<List<Medicamentos>> GetMedicamentos()

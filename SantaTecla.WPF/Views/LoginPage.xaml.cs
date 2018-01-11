@@ -1,4 +1,5 @@
-﻿using SantaTecla.WPF.ViewModels;
+﻿using SantaTecla.Services;
+using SantaTecla.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +30,13 @@ namespace SantaTecla.WPF.Views
             
         }
 
-        private void aceptar_Click(object sender, RoutedEventArgs e)
+        private async void Aceptar_Click(object sender, RoutedEventArgs e)
         {
-            key = log.Access(usr.Text, pass.Text);
+            key = await log.AccessAsync(usr.Text, pass.Text);
 
             if (key !=0 )
             {
+                
                 MessageBox.Show("BIENVENIDO");
                 this.Hide();
                 ControlWindow control = new ControlWindow();

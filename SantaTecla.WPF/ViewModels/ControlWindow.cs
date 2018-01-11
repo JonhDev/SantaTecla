@@ -76,6 +76,18 @@ namespace SantaTecla.WPF.ViewModels
                     MedicinePage medicine = new MedicinePage(aux);
                     medicine.Show();
                     break;
+                case 14:
+                    AdminPage adminPage = new AdminPage();
+                    adminPage.Show();
+                    break;
+                case 15:
+                    OptionAdmin admin = new OptionAdmin();
+                    admin.Show();
+                    break;
+                case 16:
+                    PersonalRegisterPage personal = new PersonalRegisterPage();
+                    personal.Show();
+                    break;
                 default:
                     MessageBox.Show("Error");
                     break;

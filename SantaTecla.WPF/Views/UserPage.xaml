@@ -16,14 +16,15 @@
                    FontSize="12"
                    HorizontalContentAlignment="Center"
                    Margin="0,0,0,30"/>
-            <Label Content="Consulta paciente"
+            <Label x:Name="opcEje"
+                Content="Consulta paciente"
                    FontSize="12"
                    HorizontalContentAlignment="Center"
                    Margin="0,0,0,30"/>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Paciente:" Width="100"/>
+            <Label x:Name="opcTex" Content="Paciente:" Width="100"/>
             <TextBox Width="350" x:Name="paciente"/>
         </StackPanel>
         

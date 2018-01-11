@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SantaTecla.Models;
+using SantaTecla.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,34 +11,37 @@ namespace SantaTecla.WPF.ViewModels
 {
     public class Login
     {
-        public int Access(string user, string password)
+        public async Task<int> AccessAsync(string user, string password)
         {
-            switch (user)
+            SantaTeclaService service = new SantaTeclaService();
+            string personal = await service.AuthUser(user, password);
+            if (personal != null)
             {
-                case "dr":
-                    if (password == "238")
-                        return 10;
-                    break;
-                case "Diet":
-                    if (password == "531")
-                        return 4;
-                    break;
-                case "enfermero":
-                    if (password == "242")
-                        return 7;
-                    break;
-                case "recep":
-                    if (password == "092")
-                        return 1;
-                    break;
-                case "Pcook":
-                    if (password == "123")
-                        return 4;
-                    break;
-                case "farmacia":
-                    if (password == "098")
-                        return 12;
-                    break;
+
+                switch (personal)
+                {
+                    case "doctor":
+                            return 10;
+                        
+                    case "dietetica":
+                            return 4;
+                      
+                    case "enfermero":
+                            return 7;
+                     
+                    case "recepcion":
+                            return 1;
+                        
+                    case "cocina":
+                            return 4;
+                        
+                    case "farmacia":
+                            return 12;
+
+                    case "administracion":
+                        return 14;
+                        
+                }
             }
 
             return 0;

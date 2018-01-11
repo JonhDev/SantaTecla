@@ -68,7 +68,15 @@ namespace SantaTecla.WPF.Views
                 };
                 SantaTeclaService serv =  new SantaTeclaService();
                 if (await serv.PostPaciente(pac))
+                {
                     MessageBox.Show("Paciente agregado");
+                    if (StaticHelper.OptionReturn == 5)
+                    {
+                        Hide();
+                        control.Show(14);
+                        Close();
+                    }
+                }
                 else
                     MessageBox.Show("Error");
             }
