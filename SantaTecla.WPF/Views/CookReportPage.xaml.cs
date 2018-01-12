@@ -18,7 +18,7 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Interaction logic for CookReportPage.xaml
     /// </summary>
-    public partial class CookReportPage : Window
+    public partial class CookReportPage : Page
     {
         ControlWindow Control = new ControlWindow();
         public CookReportPage()
@@ -29,11 +29,8 @@ namespace SantaTecla.WPF.Views
 
         private void Generar_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             StaticHelper.SelectedId = int.Parse(IdPaciente.Text);
-
             Control.Show(5);
-            this.Close();
         }
     }
 }

@@ -37,7 +37,7 @@ namespace SantaTecla.WPF.ViewModels
                     user.Show();
                     break;
                 case 4:
-                    CookReportPage cookReport = new CookReportPage();
+                    CookPanelWindow cookReport = new CookPanelWindow();
                     cookReport.Show();
                     break;
                 case 5:
