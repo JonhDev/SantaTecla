@@ -22,9 +22,8 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class RegisterPage : UserControl
     {
-        ControlWindow control = new ControlWindow();
         private Payment _pay;
-        int refAct;
+        int refAct,id;
         public RegisterPage()
         {
             InitializeComponent();
@@ -37,8 +36,26 @@ namespace SantaTecla.WPF.Views
             this.refAct = refAct;
             agregar.Click += Agregar_Click;
             pago.Click += Pago_Click;
+            Consulta.Click += (obj, arg) =>
+            {
+                PacientesListWindow list = new PacientesListWindow(0);
+                list.Show();
+                list.OnItemSelected += (sender, args) =>
+                {
 
-            Id.Content = "Id";
+                    var paciente = args.Objecto as Pacientes;
+                    IdToSearch.Text = ""+paciente.NSS;
+                    nombre.Text = paciente.Nombre;
+                    edad.Text = "" + paciente.Edad;
+                    direccion.Text = paciente.Direccion;
+                    if (paciente.Sexo.ToLower() == "masculino")
+                        sexMasc.IsChecked = true;
+                    else
+                        sexFem.IsChecked = true;
+
+                };
+            };
+
 
         }
 
@@ -57,6 +74,9 @@ namespace SantaTecla.WPF.Views
             if (!String.IsNullOrEmpty(nombre.Text) || !String.IsNullOrEmpty(direccion.Text))
             {
                 Pacientes pac = new Pacientes();
+                SantaTeclaService serv = new SantaTeclaService();
+                
+
 
                 pac.Nombre = nombre.Text;
                 pac.Edad = int.Parse(edad.Text);
@@ -79,7 +99,7 @@ namespace SantaTecla.WPF.Views
                     IdPersonal = 0,
                     NoCita = 0
                 };
-                SantaTeclaService serv =  new SantaTeclaService();
+                
                 if (await serv.PostPaciente(pac))
                 {
                     MessageBox.Show("Paciente agregado");

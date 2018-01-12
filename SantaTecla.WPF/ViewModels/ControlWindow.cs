@@ -32,10 +32,7 @@ namespace SantaTecla.WPF.ViewModels
                     RegisterPage register = new RegisterPage();
                     //register.Show();
                     break;
-                case 3:
-                    UserPage user = new UserPage();
-                    user.Show();
-                    break;
+
                 case 4:
                     CookPanelWindow cookReport = new CookPanelWindow();
                     cookReport.Show();
@@ -77,10 +74,7 @@ namespace SantaTecla.WPF.ViewModels
                     AdminPanelWindow adminPage = new AdminPanelWindow();
                     adminPage.Show();
                     break;
-                case 15:
-                    OptionAdmin admin = new OptionAdmin();
-                    //admin.Show();
-                    break;
+
                 case 16:
                     PersonalRegisterPage personal = new PersonalRegisterPage();
                     //personal.Show();

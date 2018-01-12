@@ -32,19 +32,24 @@ namespace SantaTecla.WPF.Views
 
         private async void Aceptar_Click(object sender, RoutedEventArgs e)
         {
-            key = await log.AccessAsync(usr.Text, pass.Password);
+            Loading.Visibility = Visibility.Visible;
 
-            if (key !=0 )
+            key = await log.AccessAsync(usr.Text, pass.Password);
+            if (key != 0)
             {
-                
+
                 MessageBox.Show("BIENVENIDO");
                 this.Hide();
                 ControlWindow control = new ControlWindow();
                 control.Show(key);
                 this.Close();
+                Loading.Visibility = Visibility.Collapsed;
             }
             else
+            {
                 MessageBox.Show("usuario invalido");
+                Loading.Visibility = Visibility.Collapsed;
+            }
 
         }
     }

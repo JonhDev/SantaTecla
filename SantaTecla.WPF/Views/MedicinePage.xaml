@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d"
         Title="MedicinePage" Height="300" Width="415.038">
     <Grid>
@@ -13,6 +14,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="142,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" x:Name="referencia"/>
         <Label Content="Cantidad" HorizontalAlignment="Left" Margin="58,93,0,0" VerticalAlignment="Top" x:Name="labelA" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="142,96,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" x:Name="cantidad" Visibility="Hidden"/>
-
+        <Grid x:Name="Loading" Visibility="Collapsed">
+            <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+        </Grid>
     </Grid>
 </Page>

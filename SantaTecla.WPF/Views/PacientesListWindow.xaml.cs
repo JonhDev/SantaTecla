@@ -24,23 +24,30 @@ namespace SantaTecla.WPF.Views
         public delegate void ItemSelected(object sender, ItemSelectedEventArgs args);
         public event ItemSelected OnItemSelected;
 
-        public PacientesListWindow()
+        private int _quien;
+        public PacientesListWindow(int quien)
         {
             InitializeComponent();
+            _quien = quien;
             GetData().GetAwaiter();
         }
 
         private async Task GetData()
         {
             SantaTeclaService sevice = new SantaTeclaService();
-            ListPacientes.ItemsSource = await sevice.GetPacientes();
+            if(_quien == 0)
+                ListPacientes.ItemsSource = await sevice.GetPacientes();
+            else
+            {
+                ListPacientes.ItemsSource = await sevice.GetPersonal();
+            }
             Ok.Click += (sender, args) =>
             {
                 if (ListPacientes.SelectedItem != null)
                 {
                     OnItemSelected?.Invoke(this, new ItemSelectedEventArgs
                     {
-                        Paciente = ListPacientes.SelectedItem as Pacientes
+                        Objecto = ListPacientes.SelectedItem
                     });
                     this.Close();
                 }
@@ -55,6 +62,6 @@ namespace SantaTecla.WPF.Views
 
     public class ItemSelectedEventArgs : EventArgs
     {
-        public Pacientes Paciente { get; set; }
+        public object Objecto { get; set; }
     }
 }

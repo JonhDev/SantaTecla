@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="Panel de farmacia" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,8 +16,10 @@
             <StackPanel Grid.Column="0"
                         Background="Gold">
                 <StackPanel Background="Orange"
-                            Height="100"
+                            Height="150"
                             VerticalAlignment="Top">
+                    <Image Source="../Images/medicine.png" Margin="5" Height="50"/>
+
                     <Label Content="Hospital Santa Tecla" 
                            HorizontalContentAlignment="Center"
                            FontSize="20"

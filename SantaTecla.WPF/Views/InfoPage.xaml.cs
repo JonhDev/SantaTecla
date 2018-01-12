@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SantaTecla.Models;
 using SantaTecla.Services;
 using SantaTecla.WPF.ViewModels;
 
@@ -24,14 +25,33 @@ namespace SantaTecla.WPF.Views
         public InfoPage()
         {
             InitializeComponent();
-            PacientesListWindow pacLis = new PacientesListWindow();
-            pacLis.OnItemSelected += (sender, args) =>
-            {
-                Id.Text = args.Paciente.NSS + "";
-            };
+            
             finalizar.Click += Finalizar_Click;
             Consulta.Click += Consulta_Click;
-            Lista.Click += (sender, args) => pacLis.Show();
+            Lista.Click += (s, a) =>
+            {
+                if (Pac.IsChecked.Value)
+                {
+                    PacientesListWindow pacLis = new PacientesListWindow(0);
+                    pacLis.OnItemSelected += (sender, args) =>
+                    {
+                        var pac = args.Objecto as Pacientes;
+                        Id.Text = pac.NSS + "";
+                    };
+                    pacLis.Show();
+                }
+                else
+                {
+                    PacientesListWindow pacLis = new PacientesListWindow(1);
+                    pacLis.OnItemSelected += (sender, args) =>
+                    {
+                        var pac = args.Objecto as Personal;
+                        Id.Text = pac.Id + "";
+                    };
+                    pacLis.Show();
+                }
+                
+            };
         }
 
         private void Consulta_Click(object sender, RoutedEventArgs e)

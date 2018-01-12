@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d"
-        Title="UserReportPage" Height="532.331" Width="488.346">
+        Title="UserReportPage" Height="550.331" Width="488.346">
     <Grid>
         <Grid>
             <StackPanel>
@@ -39,6 +40,9 @@
                 <Label Margin="10,0,10,0" Content="Diagnostico paciente:"/>
                 <TextBox Margin="10,0,10,0" Height="200" x:Name="diagnostico"/>
                 <Button Content="Listo" Margin="190,10,190,0" Width="100" x:Name="listo" />
+                <Grid x:Name="Loading" Visibility="Collapsed">
+                    <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+                </Grid>
             </StackPanel>
         </Grid>
     </Grid>

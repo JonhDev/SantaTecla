@@ -100,6 +100,13 @@ namespace SantaTecla.Services
             return JsonConvert.DeserializeObject<List<Pacientes>>(json);
         }
 
+        public async Task<List<Personal>> GetPersonal()
+        {
+            var answer = await httpClient.GetAsync(ConectionHelpers.MainURL + ConectionHelpers.PersonalURL);
+            var json = await answer.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<Personal>>(json);
+        }
+
         public async Task<Pacientes> GetPacienteById(int nss)
         {
             var answer = await httpClient.GetAsync(ConectionHelpers.MainURL + ConectionHelpers.PacientesURL);

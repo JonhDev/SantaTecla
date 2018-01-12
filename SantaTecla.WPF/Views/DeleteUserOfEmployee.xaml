@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+      xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="DeleteUserOfEmployee">
@@ -13,10 +14,14 @@
         <StackPanel>
             <Label Content="Ingresa el ID a Eliminar"/>
             <TextBox x:Name="IdToDelete"/>
+            <Button HorizontalAlignment="Center" x:Name="Lista" Content="Lista" Width="100"/>
             <StackPanel Orientation="Horizontal">
-                <RadioButton x:Name="Paciente" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
+                <RadioButton x:Name="Paciente" IsChecked="True" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
                 <RadioButton x:Name="Personal" Content="Personal" GroupName="Quien"/>
             </StackPanel>
+            <Grid x:Name="Loading" Visibility="Hidden">
+                <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+            </Grid>
             <Button x:Name="Delete" Content="Eliminar"/>
         </StackPanel>
     </Grid>

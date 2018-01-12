@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d"
         Title="CookReportPage" Height="504.136" Width="466.917">
     <Grid>
@@ -38,6 +39,10 @@
                 </Expander>
 
                 <Label Margin="20,0,0,0" Content="A continuacion se recomendara una dieta especial para el paciente"/>
+
+                <Grid x:Name="Loading" Visibility="Collapsed">
+                    <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+                </Grid>
 
                 <Button Content="Generar reporte" Margin="0,40,0,0" Width="100" x:Name="generar"/>
             </StackPanel>

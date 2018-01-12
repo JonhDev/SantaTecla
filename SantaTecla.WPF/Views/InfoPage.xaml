@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d"
-        Title="InfoPage" Height="539.24" Width="524.436">
+        Title="InfoPage" Height="561.561" Width="524.436">
     <Grid>
         <StackPanel>
             <Label Content="Bienvenido al Hospital Santa Tecla" 
@@ -19,9 +20,9 @@
             <Label Content="Informacion"
                    FontSize="12"
                    HorizontalContentAlignment="Center"
-                   Margin="0,0,0,30"/>
+                   Margin="0,0,0,5"/>
             
-            <Grid Margin="10,10,10,20">
+            <Grid Margin="10,5,10,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="1*"/>
@@ -33,12 +34,16 @@
                     <TextBox x:Name="Id" Margin="20,0,20,0" />
                     <Button x:Name="Lista" HorizontalAlignment="Center" Width="100" Content="Lista"/>
                     <StackPanel Margin="20,10,20,0" Orientation="Horizontal">
-                        <RadioButton x:Name="Pac" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
+                        <RadioButton x:Name="Pac" IsChecked="True" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
                         <RadioButton x:Name="Per" Content="Personal" GroupName="Quien"/>
                     </StackPanel>
                 </StackPanel>
                 <Button x:Name="Consulta" Grid.Column="1" Content="Buscar" Margin="10,17,10,17"/>
 
+            </Grid>
+
+            <Grid x:Name="Loading" Visibility="Collapsed">
+                <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
             </Grid>
 
             <Label Margin="10,0,10,0" Content="Informacion:"/>

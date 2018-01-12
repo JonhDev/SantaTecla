@@ -36,8 +36,8 @@ namespace SantaTecla.WPF.Views
                 {
                     payment.PaymentType = PaymentOptions.Tarjeta;
                     payment.CVV = TarjetaCVV.Text;
-                    payment.Fecha = TarjetaFecha.Text;
-                    payment.NumTarjeta = TarjetaNum.Text;
+                    payment.Fecha = TarjetaFechaMes.Text+"/"+TarjetaFechaAno.Text;
+                    payment.NumTarjeta = TarjetaNum.Text+" "+TarjetaNum2.Text + " " + TarjetaNum3.Text + " " + TarjetaNum4.Text;
                     payment.Titular = TarjetaTitular.Text;
                 }
 

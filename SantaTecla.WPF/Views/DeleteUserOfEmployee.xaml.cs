@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SantaTecla.Models;
 
 namespace SantaTecla.WPF.Views
 {
@@ -31,7 +32,30 @@ namespace SantaTecla.WPF.Views
                 else
                     MessageBox.Show("Inserte Id ");
             };
+
             
+            Lista.Click += (s, a) =>
+            {
+                PacientesListWindow listas;
+                listas = Paciente.IsChecked.Value ? new PacientesListWindow(0) : new PacientesListWindow(1);
+                listas.OnItemSelected += (sender, args) =>
+                {
+                    string nss;
+                    if (Paciente.IsChecked.Value)
+                    {
+                        var pac = args.Objecto as Pacientes;
+                        nss = pac.NSS + "";
+                    }
+                    else
+                    {
+                        var pac = args.Objecto as Personal;
+                        nss = pac.Id + "";
+                    }
+                    IdToDelete.Text = nss;
+                };
+                listas.Show();
+            };
+
         }
 
         private async Task DeleteById(int id)

@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d"
-        Title="Forma de pago" Height="500.64" Width="524.436">
+        Title="Forma de pago" Height="569.221" Width="515.292">
     <Grid>
         <StackPanel>
             <Label Content="Bienvenido al Hospital Santa Tecla" 
@@ -33,43 +34,52 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" Content="Forma de pago:"/>
-                
-                
-                
-                
+
+
+
+
                 <StackPanel Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                     <RadioButton x:Name="Tarjeta" Padding="0,0,6,0" Content="Tarjeta credito/debito" GroupName="PaymentOptions"/>
                     <RadioButton x:Name="Efectivo" Padding="6,0,6,0" Content="Efectivo" GroupName="PaymentOptions"/>
                     <RadioButton x:Name="Seguro" Content="Seguro" GroupName="PaymentOptions"/>
                 </StackPanel>
-                
+
             </Grid>
-            
+
             <Grid x:Name="pagoTarjeta">
                 <StackPanel >
                     <Label Content="Rellenese en caso de forma de pago con tarjeta"></Label>
                     <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label  Content="Numero de tarjeta"/>
-                        <TextBox x:Name="TarjetaNum" Width="300"/>
+                        <Label  Content="Numero de tarjeta:" Margin="0,0,20,0"/>
+                        <TextBox x:Name="TarjetaNum" MaxLength="4" Width="50" Margin="0,0,20,0"/>
+                        <TextBox x:Name="TarjetaNum2" MaxLength="4" Width="50" Margin="0,0,20,0"/>
+                        <TextBox x:Name="TarjetaNum3" MaxLength="4" Width="50" Margin="0,0,20,0"/>
+                        <TextBox x:Name="TarjetaNum4" MaxLength="4" Width="50" Margin="0,0,20,0"/>
                     </StackPanel>
                     <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label  Content="CVV"/>
-                        <TextBox x:Name="TarjetaCVV" Width="200"/>
-                        <Label  Content="Fecha"/>
-                        <TextBox x:Name="TarjetaFecha" Width="200"/>
+                        <Label  Content="CVV:"/>
+                        <TextBox x:Name="TarjetaCVV" Width="70" MaxLength="4" Margin="0,0,20,0"/>
+                        <Label  Content="Fecha vencimiento (Mes/año):"/>
+                        <TextBox x:Name="TarjetaFechaMes" Width="40"/>
+                        <Label  Content="/"/>
+                        <TextBox x:Name="TarjetaFechaAno" Width="40"/>
                     </StackPanel>
                     <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label  Content="Nombre del titular"/>
+                        <Label  Content="Nombre del titular:"/>
                         <TextBox x:Name="TarjetaTitular" Width="300"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            
+
 
             <Button Height="30" Width="100" Margin="0,20,0,0" Content="Listo" x:Name="aceptar"/>
 
+            <Grid x:Name="Loading" Visibility="Hidden">
+                <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+            </Grid>
+            
         </StackPanel>
-        
-        
+
+
     </Grid>
 </Window>

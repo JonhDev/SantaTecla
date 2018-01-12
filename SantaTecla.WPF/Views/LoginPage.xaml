@@ -4,16 +4,22 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+      xmlns:extended="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
       mc:Ignorable="d" 
       xmlns:vm="clr-namespace:SantaTecla.WPF.ViewModels"
       d:DesignHeight="300" d:DesignWidth="300"
+      WindowState="Maximized"
       Title="Bienvenido: Inicia sesión">
+    <Window.Resources>
+        
+    </Window.Resources>
     <Grid>
         <Image Source="../Images/back.jpg" Stretch="Fill"/>
         <StackPanel VerticalAlignment="Center"
-                    Background="Beige"
-  
-                   HorizontalAlignment="Center">
+                    Background="White"
+                    Opacity="0.9"
+                    HorizontalAlignment="Center">
+            <Image Source="../Images/medicine.png" Margin="5" Height="50"/>
             <Label Content="Bienvenido al Hospital Santa Tecla" 
                    
                    FontSize="14"
@@ -46,6 +52,9 @@
                     Margin="0,30,0,20" 
                     x:Name="aceptar" Click="Aceptar_Click"
                     />
+            <Grid x:Name="Loading" Visibility="Collapsed">
+                <extended:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></extended:LoadingIndicator>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

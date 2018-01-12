@@ -10,11 +10,21 @@
         <ListView Margin="10,10,10,30" x:Name="ListPacientes">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>  
-                        <Label Content="{Binding Nombre}" FontWeight="ExtraBold"/>
-                        <Label Content="{Binding Apellido}" FontWeight="Bold"/>
-                        <Label Content="{Binding NSS}" FontWeight="Light"/>
-                    </StackPanel>
+                    <Grid>  
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="{Binding Nombre}" FontWeight="ExtraBold"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="{Binding Apellido}" FontWeight="Bold"/>
+                        <Label Grid.RowSpan="2" Grid.Column="1" Content="{Binding NSS}" FontWeight="Light"/>
+                        <Label Grid.RowSpan="2" Grid.Column="1" Content="{Binding Id}" FontWeight="Light"/>
+
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

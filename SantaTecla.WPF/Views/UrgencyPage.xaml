@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d"
         Title="UrgencyPage" Height="555.969" Width="469.173">
     <Grid>
@@ -40,6 +41,9 @@
             <TextBox Margin="10,0,10,0" Height="200" x:Name="info"/>
             
             <Button x:Name="AddReport" Content="Agregar reporte" Margin="0,10,0,0" Width="120" Click="Button_Click"/>
+            <Grid x:Name="Loading" Visibility="Hidden">
+                <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+            </Grid>
         </StackPanel>
         
         

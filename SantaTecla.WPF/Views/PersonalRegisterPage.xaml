@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d" Height="390" Width="376">
     <Grid>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top"/>
@@ -19,6 +20,10 @@
         <TextBox x:Name="contra" HorizontalAlignment="Left" Height="23" Margin="129,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="aceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="94,304,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="231,304,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <Grid x:Name="Loading" Visibility="Collapsed" VerticalAlignment="Bottom">
+            <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>
+        </Grid>
 
     </Grid>
 </UserControl>

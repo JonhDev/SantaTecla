@@ -37,6 +37,9 @@
     <ApplicationIcon>medicine.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LoadingIndicators.WPF, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LoadingIndicators.WPF.0.0.1\lib\LoadingIndicators.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -54,6 +57,24 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -65,9 +86,6 @@
     <Compile Include="ViewModels\StaticHelper.cs" />
     <Compile Include="Views\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AdminPage.xaml.cs">
-      <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PacientesListWindow.xaml.cs">
       <DependentUpon>PacientesListWindow.xaml</DependentUpon>
@@ -111,20 +129,8 @@
     <Compile Include="Views\MedicinePage.xaml.cs">
       <DependentUpon>MedicinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OptionAdmin.xaml.cs">
-      <DependentUpon>OptionAdmin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\OptionDr.xaml.cs">
-      <DependentUpon>OptionDr.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\PersonalRegisterPage.xaml.cs">
       <DependentUpon>PersonalRegisterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PharmacyPage.xaml.cs">
-      <DependentUpon>PharmacyPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RecepcionWindow.xaml.cs">
-      <DependentUpon>RecepcionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PaymentPage.xaml.cs">
       <DependentUpon>PaymentPage.xaml</DependentUpon>
@@ -137,9 +143,6 @@
     </Compile>
     <Compile Include="Views\UserMenuPage.xaml.cs">
       <DependentUpon>UserMenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserPage.xaml.cs">
-      <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserReportPage.xaml.cs">
       <DependentUpon>UserReportPage.xaml</DependentUpon>
@@ -157,10 +160,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AddPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,23 +219,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OptionAdmin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\OptionDr.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\PersonalRegisterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PharmacyPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RecepcionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,10 +236,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserMenuPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="medicine.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\medicine.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
