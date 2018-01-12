@@ -28,12 +28,12 @@
                     <TextBox x:Name="IdPaciente" Width="200"/>
                 </StackPanel>
                 
-                <CheckBox Margin="20,0,0,0" Content="Es alergico"/>
-                <CheckBox Margin="20,0,0,0" Content="Puede comer de todo"/>
+                <CheckBox x:Name="Alergia" Margin="20,0,0,0" Content="Es alergico"/>
+                <CheckBox x:Name="comida" Margin="20,0,0,0" Content="Puede comer de todo"/>
                 <Expander Margin="20,0,0,0" Header="Ha salido de una operacion">
                     <StackPanel Margin="15, 0, 0, 0">
-                        <CheckBox Content="Operacion complicada"/>
-                        <CheckBox Content="Operacion normal"/>
+                        <CheckBox x:Name="OperaCompl" Content="Operacion complicada"/>
+                        <CheckBox x:Name="OperaNorm" Content="Operacion normal"/>
                     </StackPanel>
                 </Expander>
 
