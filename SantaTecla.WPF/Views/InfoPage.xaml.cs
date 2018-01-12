@@ -24,9 +24,14 @@ namespace SantaTecla.WPF.Views
         public InfoPage()
         {
             InitializeComponent();
+            PacientesListWindow pacLis = new PacientesListWindow();
+            pacLis.OnItemSelected += (sender, args) =>
+            {
+                Id.Text = args.Paciente.NSS + "";
+            };
             finalizar.Click += Finalizar_Click;
-            Consulta.Click += Consulta_Click;   
-            
+            Consulta.Click += Consulta_Click;
+            Lista.Click += (sender, args) => pacLis.Show();
         }
 
         private void Consulta_Click(object sender, RoutedEventArgs e)

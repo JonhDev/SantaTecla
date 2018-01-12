@@ -69,6 +69,9 @@
     <Compile Include="Views\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PacientesListWindow.xaml.cs">
+      <DependentUpon>PacientesListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PharmacyPanelWindow.xaml.cs">
       <DependentUpon>PharmacyPanelWindow.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PacientesListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

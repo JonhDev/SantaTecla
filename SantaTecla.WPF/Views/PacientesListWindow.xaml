@@ -1,0 +1,23 @@
+﻿<Window x:Class="SantaTecla.WPF.Views.PacientesListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SantaTecla.WPF.Views"
+        mc:Ignorable="d"
+        Title="Pacientes" Height="500" Width="300">
+    <Grid>
+        <ListView Margin="10,10,10,30" x:Name="ListPacientes">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>  
+                        <Label Content="{Binding Nombre}" FontWeight="ExtraBold"/>
+                        <Label Content="{Binding Apellido}" FontWeight="Bold"/>
+                        <Label Content="{Binding NSS}" FontWeight="Light"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Ok" x:Name="Ok" VerticalAlignment="Bottom" />
+    </Grid>
+</Window>

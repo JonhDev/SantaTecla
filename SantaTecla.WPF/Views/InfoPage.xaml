@@ -31,6 +31,7 @@
                            Margin="20,0,20,0"/>
 
                     <TextBox x:Name="Id" Margin="20,0,20,0" />
+                    <Button x:Name="Lista" HorizontalAlignment="Center" Width="100" Content="Lista"/>
                     <StackPanel Margin="20,10,20,0" Orientation="Horizontal">
                         <RadioButton x:Name="Pac" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
                         <RadioButton x:Name="Per" Content="Personal" GroupName="Quien"/>
