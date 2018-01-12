@@ -20,7 +20,7 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Lógica de interacción para MedicinePage.xaml
     /// </summary>
-    public partial class MedicinePage : Window
+    public partial class MedicinePage : Page
     {
         
         public MedicinePage(int opc)
@@ -37,16 +37,9 @@ namespace SantaTecla.WPF.Views
             }
             consultar.Click += Consultar_Click;
             agregar.Click += Agregar_Click;
-            salir.Click += Salir_Click;
         }
 
-        private void Salir_Click(object sender, RoutedEventArgs e)
-        {
-            ControlWindow control = new ControlWindow();
-            Hide();
-            control.Show(12);
-            Close();
-        }
+
 
         private async void Agregar_Click(object sender, RoutedEventArgs e)
         {

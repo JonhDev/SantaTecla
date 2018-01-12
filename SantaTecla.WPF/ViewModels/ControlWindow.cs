@@ -67,12 +67,11 @@ namespace SantaTecla.WPF.ViewModels
                     pay.Show();
                     break;
                 case 12:
-                    PharmacyPage pharmacy = new PharmacyPage();
+                    PharmacyPanelWindow pharmacy = new PharmacyPanelWindow();
                     pharmacy.Show();
                     break;
                 case 13:
                     MedicinePage medicine = new MedicinePage(aux);
-                    medicine.Show();
                     break;
                 case 14:
                     AdminPanelWindow adminPage = new AdminPanelWindow();

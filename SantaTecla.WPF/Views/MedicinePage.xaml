@@ -1,4 +1,4 @@
-﻿<Window x:Class="SantaTecla.WPF.Views.MedicinePage"
+﻿<Page x:Class="SantaTecla.WPF.Views.MedicinePage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,9 +11,8 @@
         <Button Content="Agregar" HorizontalAlignment="Left" Margin="226,161,0,0" VerticalAlignment="Top" Width="75" x:Name="agregar"/>
         <Label Content="No. de Referencia" HorizontalAlignment="Left" Margin="24,41,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="142,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" x:Name="referencia"/>
-        <Button Content="Salir" HorizontalAlignment="Left" Margin="301,221,0,0" VerticalAlignment="Top" Width="75" x:Name="salir"/>
         <Label Content="Cantidad" HorizontalAlignment="Left" Margin="58,93,0,0" VerticalAlignment="Top" x:Name="labelA" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="142,96,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" x:Name="cantidad" Visibility="Hidden"/>
 
     </Grid>
-</Window>
+</Page>
