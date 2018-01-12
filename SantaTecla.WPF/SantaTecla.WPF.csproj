@@ -69,6 +69,12 @@
     <Compile Include="Views\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NursePanelWindow.xaml.cs">
+      <DependentUpon>NursePanelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DieteticPanelWindow.xaml.cs">
+      <DependentUpon>DieteticPanelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CookPanelWindow.xaml.cs">
       <DependentUpon>CookPanelWindow.xaml</DependentUpon>
     </Compile>
@@ -151,6 +157,14 @@
     <Page Include="Views\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NursePanelWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DieteticPanelWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CookPanelWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

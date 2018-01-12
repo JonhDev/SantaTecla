@@ -15,27 +15,22 @@ using System.Windows.Shapes;
 namespace SantaTecla.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for UrgencyPage.xaml
+    /// Interaction logic for AdminPanelWindow.xaml
     /// </summary>
-    public partial class UrgencyPage : Page
+    public partial class NursePanelWindow : Window
     {
-        
-        public UrgencyPage()
+        public NursePanelWindow()
         {
             InitializeComponent();
-            
+            MainFrame.Navigate(new UrgencyPage());
+            Generar.Click += (obj, args) => MainFrame.Navigate(new UrgencyPage());
+            Salir.Click += (obj, arg) =>
+            {
+                new LoginPage().Show();
+                Close();
+            };
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (!String.IsNullOrEmpty(info.Text))
-            {
-                MessageBox.Show("Listo");
-                LoginPage login = new LoginPage();
-                login.Show();
-            }
-            else
-                MessageBox.Show("Cuadro vacio");
-        }
+        
     }
 }

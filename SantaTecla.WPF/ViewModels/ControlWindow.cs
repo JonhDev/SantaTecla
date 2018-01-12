@@ -49,7 +49,7 @@ namespace SantaTecla.WPF.ViewModels
                     menu.Show();
                     break;
                 case 7:
-                    UrgencyPage urgency = new UrgencyPage();
+                    NursePanelWindow urgency = new NursePanelWindow();
                     urgency.Show();
                     break;
                 case 8:
