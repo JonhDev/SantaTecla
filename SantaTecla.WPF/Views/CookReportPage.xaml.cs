@@ -1,4 +1,6 @@
-﻿using SantaTecla.WPF.ViewModels;
+﻿using SantaTecla.Models;
+using SantaTecla.Services;
+using SantaTecla.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +26,37 @@ namespace SantaTecla.WPF.Views
         public CookReportPage()
         {
             InitializeComponent();
-            generar.Click += Generar_Click;
+            generar.Click += Generar_ClickAsync;
         }
 
-        private void Generar_Click(object sender, RoutedEventArgs e)
+        private async void Generar_ClickAsync(object sender, RoutedEventArgs e)
         {
-            StaticHelper.SelectedId = int.Parse(IdPaciente.Text);
-            Control.Show(5);
+            int id;
+            if (!String.IsNullOrEmpty(IdPaciente.Text))
+            {
+                id = StaticHelper.SelectedId = int.Parse(IdPaciente.Text);
+                SantaTeclaService service = new SantaTeclaService();
+
+                Pacientes pac = await service.GetPacienteById(int.Parse(IdPaciente.Text));
+
+                if (Alergia.IsChecked == true)
+                    pac.Historial.Contradicciones += "\nAlergico";
+                if (comida.IsChecked == true)
+                    pac.Historial.Antecendentes += "\ndieta si restricciones";
+                if (OperaCompl.IsChecked == true)
+                    pac.Historial.Antecendentes += "\nHistorial de Operacion Complicada";
+                if (OperaNorm.IsChecked == true)
+                    pac.Historial.Antecendentes += "\nHistorial de Operacion Normal";
+                if (await service.PutPaciente(id, pac))
+                    MessageBox.Show("Añadido al historial");
+                else
+                    MessageBox.Show("Error al actualizar");
+            }
+            else
+                MessageBox.Show("Ingrese ID");
+
+            
+            
         }
     }
 }
