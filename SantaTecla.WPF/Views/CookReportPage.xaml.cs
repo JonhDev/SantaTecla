@@ -30,6 +30,8 @@ namespace SantaTecla.WPF.Views
         private void Generar_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+            StaticHelper.SelectedId = int.Parse(IdPaciente.Text);
+
             Control.Show(5);
             this.Close();
         }

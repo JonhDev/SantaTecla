@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SantaTecla.Models;
+using SantaTecla.Services;
 
 namespace SantaTecla.WPF.Views
 {
@@ -46,18 +48,39 @@ namespace SantaTecla.WPF.Views
             Close();
         }
 
-        private void Agregar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Medicamento Agregado");
-
-        }
-
-        private void Consultar_Click(object sender, RoutedEventArgs e)
+        private async void Agregar_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty(referencia.Text))
             {
+                int id = int.Parse(referencia.Text);
 
-                MessageBox.Show("Disponible");
+                SantaTeclaService service = new SantaTeclaService();
+                var medicamento = await service.GetMedicamentosByNameOrId(id);
+
+                medicamento.Cantidad = int.Parse(cantidad.Text);
+                if (await service.PutMedicamento(id, medicamento))
+                    MessageBox.Show("Medicamento Agregado");
+                else
+                    MessageBox.Show("Error al agregar");
+
+            }
+            else
+                MessageBox.Show("Ingrese Referencia");
+        
+            
+
+        }
+
+        private async void Consultar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(referencia.Text))
+            {
+                int id = int.Parse(referencia.Text);
+                
+                SantaTeclaService service = new SantaTeclaService();
+                var medicamento = await service.GetMedicamentosByNameOrId(id);
+                
+                MessageBox.Show($"Disponible: {medicamento.Cantidad}");
             }
             else
                 MessageBox.Show("Ingrese Referencia");

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTecla.WPF", "SantaTecla.WPF\SantaTecla.WPF.csproj", "{62100230-FCD0-4259-AB48-81345E5F026F}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTecla.UnitTests", "SantaTecla.UnitTests\SantaTecla.UnitTests.csproj", "{B2AEBF5B-D854-467A-8542-45A9C7EA3A36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSantaTecla", "WebApiSantaTecla\WebApiSantaTecla\WebApiSantaTecla.csproj", "{C9499918-F62A-4F95-AF2A-F2E16B295913}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTecla.Models", "SantaTecla.Models\SantaTecla.Models.csproj", "{CA15B77A-B8C9-4A5E-A1FB-3CE7D602AD77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTecla.Testing", "SantaTecla.Testing\SantaTecla.Testing.csproj", "{6266689C-9AD6-41F4-8C30-B18C8A9F482F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C9499918-F62A-4F95-AF2A-F2E16B295913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9499918-F62A-4F95-AF2A-F2E16B295913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9499918-F62A-4F95-AF2A-F2E16B295913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA15B77A-B8C9-4A5E-A1FB-3CE7D602AD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA15B77A-B8C9-4A5E-A1FB-3CE7D602AD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA15B77A-B8C9-4A5E-A1FB-3CE7D602AD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA15B77A-B8C9-4A5E-A1FB-3CE7D602AD77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6266689C-9AD6-41F4-8C30-B18C8A9F482F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6266689C-9AD6-41F4-8C30-B18C8A9F482F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6266689C-9AD6-41F4-8C30-B18C8A9F482F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6266689C-9AD6-41F4-8C30-B18C8A9F482F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

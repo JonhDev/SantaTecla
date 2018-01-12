@@ -25,12 +25,12 @@ namespace SantaTecla.WPF.ViewModels
             switch (key)
             {
                 case 1:
-                    RecepcionWindow recepcion = new RecepcionWindow();
+                    ReceptionPanelWindow recepcion = new ReceptionPanelWindow();
                     recepcion.Show();
                     break;
                 case 2:
                     RegisterPage register = new RegisterPage();
-                    register.Show();
+                    //register.Show();
                     break;
                 case 3:
                     UserPage user = new UserPage();
@@ -58,7 +58,6 @@ namespace SantaTecla.WPF.ViewModels
                     break;
                 case 9:
                     InfoPage info = new InfoPage();
-                    info.Show();
                     break;
                 case 10:
                     OptionDr option = new OptionDr();
@@ -75,6 +74,18 @@ namespace SantaTecla.WPF.ViewModels
                 case 13:
                     MedicinePage medicine = new MedicinePage(aux);
                     medicine.Show();
+                    break;
+                case 14:
+                    AdminPanelWindow adminPage = new AdminPanelWindow();
+                    adminPage.Show();
+                    break;
+                case 15:
+                    OptionAdmin admin = new OptionAdmin();
+                    //admin.Show();
+                    break;
+                case 16:
+                    PersonalRegisterPage personal = new PersonalRegisterPage();
+                    //personal.Show();
                     break;
                 default:
                     MessageBox.Show("Error");

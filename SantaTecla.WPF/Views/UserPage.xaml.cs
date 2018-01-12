@@ -1,4 +1,5 @@
-﻿using SantaTecla.WPF.ViewModels;
+﻿using SantaTecla.Services;
+using SantaTecla.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,16 +25,65 @@ namespace SantaTecla.WPF.Views
         public UserPage()
         {
             InitializeComponent();
+            if (StaticHelper.Option1 == 7)
+            {
+                opcEje.Content = "Eliminar Personal";
+                opcTex.Content = "ID Personal";
+
+            }
+            if (StaticHelper.Option1 == 12)
+            {
+                opcEje.Content = "Consultar Paciente";
+            }
+            if (StaticHelper.Option1 == 13)
+            {
+                opcEje.Content = "Consultar Personal";
+                opcTex.Content = "ID Personal";
+            }
+
             consulta.Click += Consulta_Click;
         }
 
-        private void Consulta_Click(object sender, RoutedEventArgs e)
+        private async void Consulta_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty(paciente.Text))
             {
-                this.Hide();
-                control.Show(9);
-                this.Close();
+                
+                StaticHelper.SelectedId = int.Parse(paciente.Text);
+                
+                if (StaticHelper.Option == 2)
+                {
+                    SantaTeclaService service = new SantaTeclaService();
+                    if(StaticHelper.Option1==7)
+                        if (await service.DeletePersonal(StaticHelper.SelectedId))
+                        {
+                            MessageBox.Show("Personal eliminado");
+                        }
+                        else MessageBox.Show("ERROR AL ELIMINAR");
+                    if (StaticHelper.Option1 == 9)
+                        if (await service.DeletePaciente(StaticHelper.SelectedId))
+                        {
+                            MessageBox.Show("Paciente eliminado");
+                        }
+                        else MessageBox.Show("ERROR AL ELIMINAR");
+
+
+                }
+
+                if (StaticHelper.Option == 8)
+                {
+                    this.Hide();
+                    control.Show(9);
+                    this.Close();
+                }
+
+                if (StaticHelper.OptionReturn == 5 && StaticHelper.Option != 8)
+                {
+                    this.Hide();
+                    control.Show(14);
+                    this.Close();
+                }
+
 
             }
             else
