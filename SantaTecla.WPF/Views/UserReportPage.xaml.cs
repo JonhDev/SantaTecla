@@ -1,4 +1,6 @@
-﻿using SantaTecla.WPF.ViewModels;
+﻿using SantaTecla.Models;
+using SantaTecla.Services;
+using SantaTecla.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,16 +30,21 @@ namespace SantaTecla.WPF.Views
             listo.Click += Listo_Click;
         }
 
-        private void Listo_Click(object sender, RoutedEventArgs e)
+        private async void Listo_Click(object sender, RoutedEventArgs e)
         {
+            int id = 0;// crear campos para id
             if (!String.IsNullOrEmpty(diagnostico.Text))
             {
-                if (StaticHelper.OptionReturn == 5)//NO esta lista
-                {
-                    this.Hide();
-                    Control.Show(14);
-                    this.Close();
-                }
+                SantaTeclaService service = new SantaTeclaService();
+
+                Pacientes pac = await service.GetPacienteById(id);
+
+                pac.Historial.Antecendentes = diagnostico.Text;
+
+                if (await service.PutPaciente(id, pac))
+                    MessageBox.Show("Paciente Actualizado");
+                else
+                    MessageBox.Show("Error");
             }
             else
                 MessageBox.Show("Cuadro vacio");

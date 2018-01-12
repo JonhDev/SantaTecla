@@ -66,6 +66,9 @@
     <Compile Include="Views\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DoctorPanelWindow .xaml.cs">
+      <DependentUpon>DoctorPanelWindow .xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReceptionPanelWindow.xaml.cs">
       <DependentUpon>ReceptionPanelWindow.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
     <Page Include="Views\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DoctorPanelWindow .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ReceptionPanelWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

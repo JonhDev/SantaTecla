@@ -24,8 +24,16 @@ namespace SantaTecla.WPF.Views
             InitializeComponent();
             MainFrame.Navigate(new RegisterPage());
             Agregar.Click += (obj, args) => MainFrame.Navigate(new RegisterPage());
-            Actualizar.Click += (obj, args) => MainFrame.Navigate(new InfoPage());
+            Actualizar.Click += (obj, args) => MainFrame.Navigate(new RegisterPage(1));
             Consultar.Click += (obj, args) => MainFrame.Navigate(new InfoPage());
+            Salir.Click += (sender, e) =>
+             {
+                 LoginPage log = new LoginPage();
+                 Hide();
+                 log.Show();
+                 Close();
+                 
+             };
         }
     }
 }

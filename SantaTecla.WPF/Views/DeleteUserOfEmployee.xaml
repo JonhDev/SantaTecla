@@ -14,8 +14,8 @@
             <Label Content="Ingresa el ID a Eliminar"/>
             <TextBox x:Name="IdToDelete"/>
             <StackPanel Orientation="Horizontal">
-                <RadioButton Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
-                <RadioButton Content="Personal" GroupName="Quien"/>
+                <RadioButton x:Name="Paciente" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
+                <RadioButton x:Name="Personal" Content="Personal" GroupName="Quien"/>
             </StackPanel>
             <Button x:Name="Delete" Content="Eliminar"/>
         </StackPanel>

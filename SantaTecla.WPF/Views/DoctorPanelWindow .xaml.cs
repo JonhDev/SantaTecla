@@ -17,15 +17,15 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Interaction logic for AdminPanelWindow.xaml
     /// </summary>
-    public partial class AdminPanelWindow : Window
+    public partial class DoctorPanelWindow : Window
     {
-        public AdminPanelWindow()
+        public DoctorPanelWindow()
         {
             InitializeComponent();
             MainFrame.Navigate(new AddPage());
-            Agregar.Click += (obj, args) => MainFrame.Navigate(new AddPage());
-            Eliminar.Click += (obj, args) => MainFrame.Navigate(new DeleteUserOfEmployee());
-            Consultar.Click += (obj, args) => MainFrame.Navigate(new InfoPage());
+            Generar.Click += (obj, args) => MainFrame.Navigate(new UserReportPage()); 
+            Consultar.Click += (obj, args) => MainFrame.Navigate(new AddPage());
+
             Salir.Click += (obj, arg) =>
             {
                 new LoginPage().Show();

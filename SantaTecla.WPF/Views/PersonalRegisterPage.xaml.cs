@@ -50,8 +50,6 @@ namespace SantaTecla.WPF.Views
             if (await service.PostPersonal(personal))
             {
                 MessageBox.Show("Personal Agregado");
-                ControlWindow control = new ControlWindow();
-                control.Show(14);
             }
             else MessageBox.Show("ERROR");
 
