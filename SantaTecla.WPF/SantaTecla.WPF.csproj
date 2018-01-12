@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>medicine.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -65,6 +68,9 @@
     </Compile>
     <Compile Include="Views\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CookPanelWindow.xaml.cs">
+      <DependentUpon>CookPanelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DoctorPanelWindow .xaml.cs">
       <DependentUpon>DoctorPanelWindow .xaml</DependentUpon>
@@ -145,6 +151,10 @@
     <Page Include="Views\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CookPanelWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DoctorPanelWindow .xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="medicine.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

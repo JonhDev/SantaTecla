@@ -20,7 +20,7 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Interaction logic for UserReportPage.xaml
     /// </summary>
-    public partial class UserReportPage : Window
+    public partial class UserReportPage : Page
     {
         ControlWindow Control = new ControlWindow();
         public UserReportPage()
