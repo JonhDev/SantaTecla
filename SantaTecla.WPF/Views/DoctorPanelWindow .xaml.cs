@@ -22,9 +22,9 @@ namespace SantaTecla.WPF.Views
         public DoctorPanelWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new AddPage());
+            MainFrame.Navigate(new UserReportPage());
             Generar.Click += (obj, args) => MainFrame.Navigate(new UserReportPage()); 
-            Consultar.Click += (obj, args) => MainFrame.Navigate(new AddPage());
+            Consultar.Click += (obj, args) => MainFrame.Navigate(new InfoPage());
 
             Salir.Click += (obj, arg) =>
             {

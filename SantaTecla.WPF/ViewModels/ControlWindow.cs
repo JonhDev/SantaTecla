@@ -54,13 +54,12 @@ namespace SantaTecla.WPF.ViewModels
                     break;
                 case 8:
                     UserReportPage report = new UserReportPage();
-                    report.Show();
                     break;
                 case 9:
                     InfoPage info = new InfoPage();
                     break;
                 case 10:
-                    OptionDr option = new OptionDr();
+                    DoctorPanelWindow option = new DoctorPanelWindow();
                     option.Show();
                     break;
                 case 11:

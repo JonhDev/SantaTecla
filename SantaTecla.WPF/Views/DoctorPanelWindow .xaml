@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
         mc:Ignorable="d"
-        Title="Panel de administración" Height="600" Width="800">
+        Title="Panel de doctor" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240"/>
@@ -13,8 +13,8 @@
         </Grid.ColumnDefinitions>
         <Grid>
             <StackPanel Grid.Column="0"
-                        Background="CornflowerBlue">
-                <StackPanel Background="DodgerBlue"
+                        Background="MediumSlateBlue">
+                <StackPanel Background="DarkViolet"
                             Height="100"
                             VerticalAlignment="Top">
                     <Label Content="Hospital Santa Tecla" 
