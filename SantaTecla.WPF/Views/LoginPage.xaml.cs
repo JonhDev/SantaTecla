@@ -32,7 +32,7 @@ namespace SantaTecla.WPF.Views
 
         private async void Aceptar_Click(object sender, RoutedEventArgs e)
         {
-            key = await log.AccessAsync(usr.Text, pass.Text);
+            key = await log.AccessAsync(usr.Text, pass.Password);
 
             if (key !=0 )
             {
