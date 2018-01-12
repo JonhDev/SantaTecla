@@ -1,11 +1,10 @@
-﻿<Window x:Class="SantaTecla.WPF.Views.PersonalRegisterPage"
+﻿<UserControl x:Class="SantaTecla.WPF.Views.PersonalRegisterPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
-        mc:Ignorable="d"
-        Title="PersonalRegisterPage" Height="390" Width="376">
+        mc:Ignorable="d" Height="390" Width="376">
     <Grid>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top"/>
         <Label Content="Apellidos" HorizontalAlignment="Left" Margin="26,72,0,0" VerticalAlignment="Top"/>
@@ -22,4 +21,4 @@
         <Button x:Name="cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="231,304,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
-</Window>
+</UserControl>

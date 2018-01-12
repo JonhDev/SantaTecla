@@ -20,7 +20,7 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Lógica de interacción para PersonalRegisterPage.xaml
     /// </summary>
-    public partial class PersonalRegisterPage : Window
+    public partial class PersonalRegisterPage : UserControl
     {
         public PersonalRegisterPage()
         {
@@ -30,7 +30,6 @@ namespace SantaTecla.WPF.Views
             cancelar.Click += (sender, e) =>
             {
                 ControlWindow control = new ControlWindow();
-                Hide();
                 control.Show(14);
             };
 
@@ -52,9 +51,7 @@ namespace SantaTecla.WPF.Views
             {
                 MessageBox.Show("Personal Agregado");
                 ControlWindow control = new ControlWindow();
-                Hide();
                 control.Show(14);
-                Close();
             }
             else MessageBox.Show("ERROR");
 

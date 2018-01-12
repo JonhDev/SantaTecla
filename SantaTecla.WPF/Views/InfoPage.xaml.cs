@@ -19,7 +19,7 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Interaction logic for InfoPage.xaml
     /// </summary>
-    public partial class InfoPage : Window
+    public partial class InfoPage : Page
     {
         public InfoPage()
         {
@@ -27,11 +27,11 @@ namespace SantaTecla.WPF.Views
             finalizar.Click += Finalizar_Click;
             if (StaticHelper.Option1 == 12)
             {
-                GetDataPac().GetAwaiter();
+                //GetDataPac().GetAwaiter();
             }
             if (StaticHelper.Option1 == 13)
             {
-                GetDataPer().GetAwaiter();
+                //GetDataPer().GetAwaiter();
             }
             
         }
@@ -59,9 +59,7 @@ namespace SantaTecla.WPF.Views
             ControlWindow control = new ControlWindow();
             if (StaticHelper.OptionReturn == 5)
             {
-                Hide();
                 control.Show(14);
-                Close();
             }
             
         }

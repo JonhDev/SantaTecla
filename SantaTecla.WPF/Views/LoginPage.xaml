@@ -5,12 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SantaTecla.WPF.Views"
       mc:Ignorable="d" 
-        
+     
       xmlns:vm="clr-namespace:SantaTecla.WPF.ViewModels"
       d:DesignHeight="300" d:DesignWidth="300"
       Title="LoginPage">
     <Grid>
-        <StackPanel VerticalAlignment="Center" 
+        <Image Source="../Images/back.jpg" Stretch="Fill"/>
+        <StackPanel VerticalAlignment="Center"
+                    Background="Beige"
+  
                    HorizontalAlignment="Center">
             <Label Content="Bienvenido al Hospital Santa Tecla" 
                    FontSize="14"
@@ -19,7 +22,8 @@
                    FontSize="12"
                    HorizontalContentAlignment="Center"
                    Margin="0,0,0,30"/>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"
+                        Margin="20,0,20,0">
                 <Label Content="Usuario"
                        Margin="0,0,20,0"/>
                 <TextBox Width="150"
@@ -27,7 +31,8 @@
                          x:Name="usr"
                          />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" 
+                        Margin="20,0,20,0">
                 <Label Content="Contraseña"/>
                 <TextBox Width="150"
                          Height="20"
@@ -38,7 +43,7 @@
             <Button Content="Aceptar"
                     Height="20"
                     Width="100"
-                    Margin="0,30,0,0" 
+                    Margin="0,30,0,20" 
                     x:Name="aceptar" Click="Aceptar_Click"
                     />
         </StackPanel>

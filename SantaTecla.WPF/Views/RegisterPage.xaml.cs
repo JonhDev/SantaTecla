@@ -20,7 +20,7 @@ namespace SantaTecla.WPF.Views
     /// <summary>
     /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class RegisterPage : Window
+    public partial class RegisterPage : UserControl
     {
         ControlWindow control = new ControlWindow();
         private Payment _pay;
@@ -72,9 +72,9 @@ namespace SantaTecla.WPF.Views
                     MessageBox.Show("Paciente agregado");
                     if (StaticHelper.OptionReturn == 5)
                     {
-                        Hide();
+                        //Hide();
                         control.Show(14);
-                        Close();
+                        //Close();
                     }
                 }
                 else

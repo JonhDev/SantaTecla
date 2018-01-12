@@ -1,11 +1,11 @@
-﻿<Window x:Class="SantaTecla.WPF.Views.InfoPage"
+﻿<Page x:Class="SantaTecla.WPF.Views.InfoPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SantaTecla.WPF.Views"
         mc:Ignorable="d"
-        Title="InfoPage" Height="496.24" Width="524.436">
+        Title="InfoPage" Height="539.24" Width="524.436">
     <Grid>
         <StackPanel>
             <Label Content="Bienvenido al Hospital Santa Tecla" 
@@ -20,6 +20,25 @@
                    FontSize="12"
                    HorizontalContentAlignment="Center"
                    Margin="0,0,0,30"/>
+            
+            <Grid Margin="10,10,10,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Label Content="Ingresa el ID a consultar"
+                           Margin="20,0,20,0"/>
+
+                    <TextBox Margin="20,0,20,0" />
+                    <StackPanel Margin="20,10,20,0" Orientation="Horizontal">
+                        <RadioButton Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
+                        <RadioButton Content="Personal" GroupName="Quien"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Grid.Column="1" Content="Buscar" Margin="10,17,10,17"/>
+
+            </Grid>
 
             <Label Margin="10,0,10,0" Content="Informacion:"/>
             <TextBox Margin="10,0,10,0" x:Name="infoText" Height="200"/>
@@ -27,4 +46,4 @@
             <Button Content="Finalizar" Margin="0,10,0,0" Width="100" x:Name="finalizar"/>
         </StackPanel>
     </Grid>
-</Window>
+</Page>

@@ -1,4 +1,4 @@
-﻿<Window x:Class="SantaTecla.WPF.Views.OptionAdmin"
+﻿<Page x:Class="SantaTecla.WPF.Views.OptionAdmin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,4 +11,4 @@
         <Button x:Name="paciente" Content="Paciente" HorizontalAlignment="Left" Margin="115,160,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
-</Window>
+</Page>
