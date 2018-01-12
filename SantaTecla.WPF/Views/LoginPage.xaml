@@ -15,6 +15,7 @@
   
                    HorizontalAlignment="Center">
             <Label Content="Bienvenido al Hospital Santa Tecla" 
+                   
                    FontSize="14"
                    HorizontalContentAlignment="Center"/>
             <Label Content="Que tenga un excelente dia"
