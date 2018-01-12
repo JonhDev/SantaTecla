@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SantaTecla.Models;
+using SantaTecla.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,20 +21,28 @@ namespace SantaTecla.WPF.Views
     /// </summary>
     public partial class UrgencyPage : Page
     {
-        
+        int id;
         public UrgencyPage()
         {
             InitializeComponent();
-            
+            AddReport.Click += Button_Click;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty(info.Text))
             {
-                MessageBox.Show("Listo");
-                LoginPage login = new LoginPage();
-                login.Show();
+                id = int.Parse(Id.Text);
+                SantaTeclaService service = new SantaTeclaService();
+
+                Pacientes pac = await service.GetPacienteById(id);
+
+                pac.Historial.Antecendentes = info.Text;
+
+                if (await service.PutPaciente(id, pac))
+                    MessageBox.Show("Paciente Actualizado");
+                else
+                    MessageBox.Show("Error");
             }
             else
                 MessageBox.Show("Cuadro vacio");
