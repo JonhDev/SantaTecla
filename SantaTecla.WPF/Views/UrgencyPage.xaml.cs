@@ -32,6 +32,7 @@ namespace SantaTecla.WPF.Views
         {
             if (!String.IsNullOrEmpty(info.Text))
             {
+                Loading.Visibility = Visibility.Visible;
                 id = int.Parse(Id.Text);
                 SantaTeclaService service = new SantaTeclaService();
 
@@ -43,6 +44,7 @@ namespace SantaTecla.WPF.Views
                     MessageBox.Show("Paciente Actualizado");
                 else
                     MessageBox.Show("Error");
+                Loading.Visibility = Visibility.Collapsed;
             }
             else
                 MessageBox.Show("Cuadro vacio");

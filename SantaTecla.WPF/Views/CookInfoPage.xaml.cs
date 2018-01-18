@@ -29,6 +29,7 @@ namespace SantaTecla.WPF.Views
 
         private async void Cerrar_Click(object sender, RoutedEventArgs e)
         {
+            Loading.Visibility = Visibility.Visible;
             SantaTeclaService ser =  new SantaTeclaService();
             var paciente = await ser.GetPacienteById(StaticHelper.SelectedId);
             paciente.Historial.Contradicciones += "\n"+contradicciones.Text;

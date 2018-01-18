@@ -28,7 +28,10 @@ namespace SantaTecla.WPF.Views
             Delete.Click += (sender, e) =>
             {
                 if (!String.IsNullOrEmpty(IdToDelete.Text))
+                {
+                    Loading.Visibility = Visibility.Visible;
                     DeleteById(int.Parse(IdToDelete.Text)).GetAwaiter();
+                }
                 else
                     MessageBox.Show("Inserte Id ");
             };
@@ -67,6 +70,7 @@ namespace SantaTecla.WPF.Views
                     MessageBox.Show("Paciente eliminado");
                 else
                     MessageBox.Show("Error al eliminar");
+                Loading.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -74,6 +78,7 @@ namespace SantaTecla.WPF.Views
                     MessageBox.Show("Empleado eliminado");
                 else
                     MessageBox.Show("Error al eliminar");
+                Loading.Visibility = Visibility.Collapsed;
             }
 
         }

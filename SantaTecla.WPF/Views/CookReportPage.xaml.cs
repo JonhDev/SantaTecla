@@ -47,8 +47,12 @@ namespace SantaTecla.WPF.Views
                     pac.Historial.Antecendentes += "\nHistorial de Operacion Complicada";
                 if (OperaNorm.IsChecked == true)
                     pac.Historial.Antecendentes += "\nHistorial de Operacion Normal";
+                Loading.Visibility = Visibility.Visible;
                 if (await service.PutPaciente(id, pac))
+                {
                     MessageBox.Show("Añadido al historial");
+                    Loading.Visibility = Visibility.Collapsed;
+                }
                 else
                     MessageBox.Show("Error al actualizar");
             }

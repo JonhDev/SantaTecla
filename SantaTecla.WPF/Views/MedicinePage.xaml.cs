@@ -46,7 +46,7 @@ namespace SantaTecla.WPF.Views
             if (!String.IsNullOrEmpty(referencia.Text))
             {
                 int id = int.Parse(referencia.Text);
-
+                Loading.Visibility = Visibility.Visible;
                 SantaTeclaService service = new SantaTeclaService();
                 var medicamento = await service.GetMedicamentosByNameOrId(id);
 
@@ -59,8 +59,8 @@ namespace SantaTecla.WPF.Views
             }
             else
                 MessageBox.Show("Ingrese Referencia");
-        
-            
+
+            Loading.Visibility = Visibility.Collapsed;
 
         }
 
@@ -69,7 +69,7 @@ namespace SantaTecla.WPF.Views
             if (!String.IsNullOrEmpty(referencia.Text))
             {
                 int id = int.Parse(referencia.Text);
-                
+                Loading.Visibility = Visibility.Visible;
                 SantaTeclaService service = new SantaTeclaService();
                 var medicamento = await service.GetMedicamentosByNameOrId(id);
                 
@@ -77,6 +77,7 @@ namespace SantaTecla.WPF.Views
             }
             else
                 MessageBox.Show("Ingrese Referencia");
+            Loading.Visibility = Visibility.Collapsed;
         }
     }
 }

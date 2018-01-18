@@ -58,9 +58,15 @@ namespace SantaTecla.WPF.Views
         {
             StaticHelper.SelectedId = int.Parse(Id.Text);
             if (Pac.IsChecked == true)
+            {
+                Loading.Visibility = Visibility.Visible;
                 GetDataPac().GetAwaiter();
+            }
             else
+            {
+                Loading.Visibility = Visibility.Visible;
                 GetDataPer().GetAwaiter();
+            }
 
         }
 
@@ -71,6 +77,7 @@ namespace SantaTecla.WPF.Views
             string info =
                 $"Informacion del paciente: {paciente.Nombre} de {paciente.Edad} años\nANTECEDENTES\n{paciente.Historial.Antecendentes}\nCONTRADICCIONES\n{paciente.Historial.Contradicciones}\nNo. Cama: {paciente.Internado.IdCama}  No.Edificio: {paciente.Internado.IdEdificio}";
             infoText.Text = info;
+            Loading.Visibility = Visibility.Collapsed;
         }
 
         private async Task GetDataPer()
@@ -80,6 +87,7 @@ namespace SantaTecla.WPF.Views
             string info =
                 $"Informacion del personal: Nombre: {personal.Nombre} \n{personal.Apellidos} \npuesto: {personal.Puesto}\nUsuario: {personal.Login.User}";
             infoText.Text = info;
+            Loading.Visibility = Visibility.Collapsed;
         }
 
         private void Finalizar_Click(object sender, RoutedEventArgs e)

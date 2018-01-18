@@ -35,6 +35,7 @@ namespace SantaTecla.WPF.Views
             int id = 0;// crear campos para id
             if (!String.IsNullOrEmpty(diagnostico.Text))
             {
+                Loading.Visibility = Visibility.Visible;
                 SantaTeclaService service = new SantaTeclaService();
 
                 Pacientes pac = await service.GetPacienteById(id);
@@ -45,6 +46,7 @@ namespace SantaTecla.WPF.Views
                     MessageBox.Show("Paciente Actualizado");
                 else
                     MessageBox.Show("Error");
+                Loading.Visibility = Visibility.Collapsed;
             }
             else
                 MessageBox.Show("Cuadro vacio");

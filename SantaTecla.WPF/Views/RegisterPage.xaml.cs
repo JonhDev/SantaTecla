@@ -48,6 +48,8 @@ namespace SantaTecla.WPF.Views
                     nombre.Text = paciente.Nombre;
                     edad.Text = "" + paciente.Edad;
                     direccion.Text = paciente.Direccion;
+                    Cama.Text = ""+paciente.Internado.IdCama;
+                    Edificio.Text = "" + paciente.Internado.IdEdificio;
                     if (paciente.Sexo.ToLower() == "masculino")
                         sexMasc.IsChecked = true;
                     else
@@ -73,26 +75,27 @@ namespace SantaTecla.WPF.Views
 
             if (!String.IsNullOrEmpty(nombre.Text) || !String.IsNullOrEmpty(direccion.Text))
             {
+                Loading.Visibility = Visibility.Visible;
                 SantaTeclaService serv = new SantaTeclaService();
                 var pac = new Pacientes();
                 if (refAct == 1)
                 {
+                    
                     id = int.Parse(IdToSearch.Text);
                     pac = await serv.GetPacienteById(id);
                     pac.Nombre = nombre.Text;
                     pac.Edad = int.Parse(edad.Text);
                     pac.Direccion = direccion.Text;
                     pac.FormaDePago = _pay;
-                    pac.Historial.Antecendentes = historial.Text;
+                    pac.Historial.Antecendentes += "\n"+historial.Text;
                     pac.Internado.IdCama = int.Parse(Cama.Text);
                     pac.Internado.IdEdificio = int.Parse(Edificio.Text);
                     pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
-                    
 
-                    if (await serv.PutPaciente(id, pac))//error al actualizar
+                    if (await serv.PutPaciente(id, pac))
                         MessageBox.Show("Paciente actualizado");
                     else
-                        MessageBox.Show("Error");
+                        MessageBox.Show("Error verifique los campos");
                 }
                 else
                 {
@@ -130,6 +133,8 @@ namespace SantaTecla.WPF.Views
                     else
                         MessageBox.Show("Error");
                 }
+
+                Loading.Visibility = Visibility.Collapsed;
             }
             else
                 MessageBox.Show("informacion faltante");
