@@ -73,43 +73,63 @@ namespace SantaTecla.WPF.Views
 
             if (!String.IsNullOrEmpty(nombre.Text) || !String.IsNullOrEmpty(direccion.Text))
             {
-                Pacientes pac = new Pacientes();
                 SantaTeclaService serv = new SantaTeclaService();
-                
+                var pac = new Pacientes();
+                if (refAct == 1)
+                {
+                    id = int.Parse(IdToSearch.Text);
+                    pac = await serv.GetPacienteById(id);
+                    pac.Nombre = nombre.Text;
+                    pac.Edad = int.Parse(edad.Text);
+                    pac.Direccion = direccion.Text;
+                    pac.FormaDePago = _pay;
+                    pac.Historial.Antecendentes = historial.Text;
+                    pac.Internado.IdCama = int.Parse(Cama.Text);
+                    pac.Internado.IdEdificio = int.Parse(Edificio.Text);
+                    pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
+                    
 
-
-                pac.Nombre = nombre.Text;
-                pac.Edad = int.Parse(edad.Text);
-                pac.Direccion = direccion.Text;
-                pac.FormaDePago = _pay;
-                pac.Historial = new Historial()
-                {
-                    Antecendentes = historial.Text
-                };
-                pac.Internado = new Internado()
-                {
-                    IdCama = 0,
-                    IdEdificio = 0,
-                    IdInternado = 0
-                };
-                pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
-                pac.Citas = new Citas()
-                {
-                    Fecha = DateTime.Now.ToString(),
-                    IdPersonal = 0,
-                    NoCita = 0
-                };
-                
-                if (await serv.PostPaciente(pac))
-                {
-                    MessageBox.Show("Paciente agregado");
-                    nombre.Text = "";
-                    edad.Text = "";
-                    direccion.Text = "";
-                    historial.Text = "";
+                    if (await serv.PutPaciente(id, pac))//error al actualizar
+                        MessageBox.Show("Paciente actualizado");
+                    else
+                        MessageBox.Show("Error");
                 }
                 else
-                    MessageBox.Show("Error");
+                {
+                   
+                    pac.Nombre = nombre.Text;
+                    pac.Edad = int.Parse(edad.Text);
+                    pac.Direccion = direccion.Text;
+                    pac.FormaDePago = _pay;
+                    pac.Historial = new Historial()
+                    {
+                        Antecendentes = historial.Text
+                    };
+                    pac.Internado = new Internado()
+                    {
+                        IdCama = int.Parse(Cama.Text),
+                        IdEdificio = int.Parse(Cama.Text),
+                        IdInternado = 0
+                    };
+                    pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
+                    pac.Citas = new Citas()
+                    {
+                        Fecha = DateTime.Now.ToString(),
+                        IdPersonal = 0,
+                        NoCita = 0
+                    };
+
+                    if (await serv.PostPaciente(pac))
+                    {
+                        MessageBox.Show("Paciente agregado");
+                        nombre.Text = "";
+                        edad.Text = "";
+                        direccion.Text = "";
+                        historial.Text = "";
+                    }
+                    else
+                        MessageBox.Show("Error");
+                }
             }
             else
                 MessageBox.Show("informacion faltante");

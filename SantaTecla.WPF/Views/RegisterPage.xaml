@@ -70,11 +70,11 @@
                 <Button Content="Agregar" Grid.Column="1" HorizontalAlignment="Left" Margin="146,3,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" x:Name="pago"/>
                 <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal">
                     <Label  Content="Cama" Margin="0,0,20,0"/>
-                    <TextBox Width="100" />
+                    <TextBox x:Name="Cama" Width="100" />
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
                     <Label  Content="Edificio" Margin="20,0,20,0"/>
-                    <TextBox Width="100" />
+                    <TextBox x:Name="Edificio" Width="100" />
                 </StackPanel>
             </Grid>
             <Button Height="30" Width="100" Margin="212,20,212,0" Content="Listo" x:Name="agregar"/>

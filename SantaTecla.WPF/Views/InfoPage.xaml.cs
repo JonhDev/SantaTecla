@@ -69,7 +69,7 @@ namespace SantaTecla.WPF.Views
             SantaTeclaService sev = new SantaTeclaService();
             var paciente = await sev.GetPacienteById(StaticHelper.SelectedId);
             string info =
-                $"Informacion del paciente: {paciente.Nombre} de {paciente.Edad} años\nANTECEDENTES\n{paciente.Historial.Antecendentes}\nCONTRADICCIONES\n{paciente.Historial.Contradicciones}";
+                $"Informacion del paciente: {paciente.Nombre} de {paciente.Edad} años\nANTECEDENTES\n{paciente.Historial.Antecendentes}\nCONTRADICCIONES\n{paciente.Historial.Contradicciones}\nNo. Cama: {paciente.Internado.IdCama}  No.Edificio: {paciente.Internado.IdEdificio}";
             infoText.Text = info;
         }
 
