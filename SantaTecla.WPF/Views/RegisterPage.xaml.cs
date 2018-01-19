@@ -48,6 +48,8 @@ namespace SantaTecla.WPF.Views
                     nombre.Text = paciente.Nombre;
                     edad.Text = "" + paciente.Edad;
                     direccion.Text = paciente.Direccion;
+                    Cama.Text = ""+paciente.Internado.IdCama;
+                    Edificio.Text = "" + paciente.Internado.IdEdificio;
                     if (paciente.Sexo.ToLower() == "masculino")
                         sexMasc.IsChecked = true;
                     else
@@ -73,43 +75,80 @@ namespace SantaTecla.WPF.Views
 
             if (!String.IsNullOrEmpty(nombre.Text) || !String.IsNullOrEmpty(direccion.Text))
             {
-                Pacientes pac = new Pacientes();
+                Loading.Visibility = Visibility.Visible;
                 SantaTeclaService serv = new SantaTeclaService();
-                
-
-
-                pac.Nombre = nombre.Text;
-                pac.Edad = int.Parse(edad.Text);
-                pac.Direccion = direccion.Text;
-                pac.FormaDePago = _pay;
-                pac.Historial = new Historial()
+                var pac = new Pacientes();
+                if (refAct == 1)
                 {
-                    Antecendentes = historial.Text
-                };
-                pac.Internado = new Internado()
-                {
-                    IdCama = 0,
-                    IdEdificio = 0,
-                    IdInternado = 0
-                };
-                pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
-                pac.Citas = new Citas()
-                {
-                    Fecha = DateTime.Now.ToString(),
-                    IdPersonal = 0,
-                    NoCita = 0
-                };
-                
-                if (await serv.PostPaciente(pac))
-                {
-                    MessageBox.Show("Paciente agregado");
-                    nombre.Text = "";
-                    edad.Text = "";
-                    direccion.Text = "";
-                    historial.Text = "";
+                    
+                    id = int.Parse(IdToSearch.Text);
+                    pac = await serv.GetPacienteById(id);
+                    pac.Nombre = nombre.Text;
+                    pac.Edad = int.Parse(edad.Text);
+                    pac.Direccion = direccion.Text;
+                    pac.FormaDePago = _pay;
+                    pac.Historial.Antecendentes += "\n"+historial.Text;
+                    pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
+                    if (await serv.BedCheck(int.Parse(Edificio.Text), int.Parse(Cama.Text),id))
+                    {
+                        pac.Internado.IdCama = int.Parse(Cama.Text);
+                        pac.Internado.IdEdificio = int.Parse(Edificio.Text);
+                        if (await serv.PutPaciente(id, pac))
+                            MessageBox.Show("Paciente actualizado");
+                        else
+                            MessageBox.Show("Error verifique los campos");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cama No Disponible");
+                    }                    
                 }
                 else
-                    MessageBox.Show("Error");
+                {
+                   
+                    pac.Nombre = nombre.Text;
+                    pac.Edad = int.Parse(edad.Text);
+                    pac.Direccion = direccion.Text;
+                    pac.FormaDePago = _pay;
+                    pac.Historial = new Historial()
+                    {
+                        Antecendentes = historial.Text
+                    };
+                    
+                    pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
+                    pac.Citas = new Citas()
+                    {
+                        Fecha = DateTime.Now.ToString(),
+                        IdPersonal = 0,
+                        NoCita = 0
+                    };
+
+                    if (await serv.BedCheck(int.Parse(Edificio.Text), int.Parse(Cama.Text),id))
+                    {
+                        pac.Internado = new Internado()
+                        {
+                            IdCama = int.Parse(Cama.Text),
+                            IdEdificio = int.Parse(Cama.Text),
+                            IdInternado = 0
+                        };
+                        if (await serv.PostPaciente(pac))
+                        {
+                            MessageBox.Show("Paciente agregado");
+                            nombre.Text = "";
+                            edad.Text = "";
+                            direccion.Text = "";
+                            historial.Text = "";
+                        }
+                        else
+                            MessageBox.Show("Error");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cama No Disponible");
+                    }
+                }
+
+                Loading.Visibility = Visibility.Collapsed;
             }
             else
                 MessageBox.Show("informacion faltante");

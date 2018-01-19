@@ -31,7 +31,9 @@ namespace SantaTecla.WPF.Views
 
             aceptar.Click +=(sourse,e)=>
             {
+                Loading.Visibility = Visibility.Visible;
                 Payment payment = new Payment();
+
                 if (Tarjeta.IsChecked.Value)
                 {
                     payment.PaymentType = PaymentOptions.Tarjeta;
@@ -46,6 +48,7 @@ namespace SantaTecla.WPF.Views
                 if (Seguro.IsChecked.Value)
                     payment.PaymentType = PaymentOptions.Seguro;
                 OnSelectedPaymentEvent?.Invoke(this, new PaymentEventArgs(){SelectedPayment = payment});
+                Loading.Visibility = Visibility.Collapsed;
                 Close();
             };
         }

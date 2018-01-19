@@ -38,7 +38,7 @@ namespace SantaTecla.WPF.Views
         private async void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             SantaTeclaService service = new SantaTeclaService();
-
+            Loading.Visibility = Visibility.Visible;
             Personal personal = new Personal
             {
                 Nombre = nombre.Text,
@@ -52,7 +52,7 @@ namespace SantaTecla.WPF.Views
                 MessageBox.Show("Personal Agregado");
             }
             else MessageBox.Show("ERROR");
-
+            Loading.Visibility = Visibility.Collapsed;
 
         }
     }
