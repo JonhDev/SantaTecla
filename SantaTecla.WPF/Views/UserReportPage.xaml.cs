@@ -43,13 +43,16 @@ namespace SantaTecla.WPF.Views
                 pac.Historial.Antecendentes = diagnostico.Text;
 
                 if (await service.PutPaciente(id, pac))
-                    MessageBox.Show("Paciente Actualizado");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Paciente actualizado con éxito", "Todo bien", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 else
-                    MessageBox.Show("Error");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Ha ocurrido un error", "Oups", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                 Loading.Visibility = Visibility.Collapsed;
             }
             else
-                MessageBox.Show("Cuadro vacio");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Hay un cuadro vacio", "Algo ha pasado", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
         }
     }
 }

@@ -94,13 +94,16 @@ namespace SantaTecla.WPF.Views
                         pac.Internado.IdCama = int.Parse(Cama.Text);
                         pac.Internado.IdEdificio = int.Parse(Edificio.Text);
                         if (await serv.PutPaciente(id, pac))
-                            MessageBox.Show("Paciente actualizado");
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Paciente actualizado con éxito", "Nueva version", MessageBoxButton.OK,
+                                MessageBoxImage.Information);
                         else
-                            MessageBox.Show("Error verifique los campos");
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Error verifica los campos", "Puede que haya algo mal", MessageBoxButton.OK,
+                                MessageBoxImage.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Cama No Disponible");
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Esta cama aun no esta disponible", "Aun no", MessageBoxButton.OK,
+                            MessageBoxImage.Stop);
                     }                    
                 }
                 else
@@ -133,25 +136,29 @@ namespace SantaTecla.WPF.Views
                         };
                         if (await serv.PostPaciente(pac))
                         {
-                            MessageBox.Show("Paciente agregado");
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Paciente agregado", "Genial", MessageBoxButton.OK,
+                                MessageBoxImage.Information);
                             nombre.Text = "";
                             edad.Text = "";
                             direccion.Text = "";
                             historial.Text = "";
                         }
                         else
-                            MessageBox.Show("Error");
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Error", "Aqui tenemos un error", MessageBoxButton.OK,
+                                MessageBoxImage.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Cama No Disponible");
+                        Xceed.Wpf.Toolkit.MessageBox.Show("La cama ingresada no esta disponible", "Algo salio mal", MessageBoxButton.OK,
+                            MessageBoxImage.Error);
                     }
                 }
 
                 Loading.Visibility = Visibility.Collapsed;
             }
             else
-                MessageBox.Show("informacion faltante");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Informacion faltante", "Un error aparecio", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
         }
 
     }

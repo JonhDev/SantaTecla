@@ -27,6 +27,17 @@ namespace SantaTecla.WPF.Views
             InitializeComponent();
             aceptar.Click += Aceptar_Click;
 
+            puesto.ItemsSource = new string[]
+            {
+                "administracion",
+                "recepcion",
+                "doctor",
+                "enfermero",
+                "dietetica",
+                "cocina",
+                "farmacia"
+            };
+
             cancelar.Click += (sender, e) =>
             {
                 ControlWindow control = new ControlWindow();
@@ -43,15 +54,27 @@ namespace SantaTecla.WPF.Views
             {
                 Nombre = nombre.Text,
                 Apellidos = apellido.Text,
-                Puesto = puesto.Text,
+                Puesto = puesto.SelectionBoxItem as string,
                 Login = new Models.Login { User = usuario.Text,Password=contra.Text}
             };
 
-            if (await service.PostPersonal(personal))
+            var lista = await service.GetPersonal();
+            var objTemp = lista.FirstOrDefault(persona => persona.Login.User == usuario.Text);
+            if (objTemp == null)
             {
-                MessageBox.Show("Personal Agregado");
+                if (await service.PostPersonal(personal))
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Personal agregado con éxito", "Todo salio bien", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+                else
+                    Xceed.Wpf.Toolkit.MessageBox.Show("El usuario no ha sido agregado", "Error", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                //MessageBox.Show("El usuario no ha sido registrado", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else MessageBox.Show("ERROR");
+            else
+                Xceed.Wpf.Toolkit.MessageBox.Show("El usuario ya existe", "Advertencia", MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
             Loading.Visibility = Visibility.Collapsed;
 
         }

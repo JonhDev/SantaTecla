@@ -29,7 +29,14 @@
                     <Label Content="Ingresa el ID a consultar"
                            Margin="20,0,20,0"/>
 
-                    <TextBox x:Name="IdToSearch" Margin="20,0,20,0" />
+                    <Border CornerRadius="5" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                        <TextBox
+                                 Height="20"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 x:Name="IdToSearch"
+                        />
+                    </Border>
 
                 </StackPanel>
                 <Button x:Name="Consulta" Grid.Column="1" Content="Ver lista" Margin="10,17,10,17"/>
@@ -57,24 +64,66 @@
                 <Label Grid.Row="3" Grid.Column="0" Content="Direccion Postal:"/>
                 <Label Grid.Row="4" Grid.Column="0" Content="Forma de pago:"/>
                 <Label Grid.Row="5" Grid.Column="0" Content="Historial clinico:"/>
-                
 
-                <TextBox Grid.Row="0" Grid.Column="1" x:Name="nombre"/>
+                <Border CornerRadius="5" Grid.Row="0" Grid.Column="1" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                    <TextBox 
+                             Height="20"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             x:Name="nombre"
+                             
+                    />
+                </Border>
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                     <RadioButton x:Name="sexMasc" Margin="10,0,10,0" GroupName="Sex" Content="Masculino" IsChecked="True"/>
                     <RadioButton x:Name="sexFem" Margin="10,0,10,0" GroupName="Sex" Content="Femenino"/>
                 </StackPanel>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="edad"/>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="direccion"/>
-                <TextBox x:Name="historial" Grid.Row="5" Grid.Column="1"/>
+                <Border CornerRadius="5" Padding="2" Grid.Row="2" Grid.Column="1" BorderThickness="1" BorderBrush="DarkCyan">
+                    <TextBox
+                             Height="20"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             x:Name="edad"
+                    />
+                </Border>
+                <Border CornerRadius="5" Grid.Row="3" Grid.Column="1" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                    <TextBox
+                             Height="20"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             x:Name="direccion"
+                    />
+                </Border>
+                <Border CornerRadius="5" Padding="2" Grid.Row="5" Grid.Column="1" BorderThickness="1" BorderBrush="DarkCyan">
+                    <TextBox
+                             Height="20"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             x:Name="historial"
+                    />
+                </Border>
                 <Button Content="Agregar" Grid.Column="1" HorizontalAlignment="Left" Margin="146,3,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" x:Name="pago"/>
                 <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal">
                     <Label  Content="Cama" Margin="0,0,20,0"/>
-                    <TextBox x:Name="Cama" Width="100" />
+                    <Border Width="100" CornerRadius="5" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                        <TextBox Width="100"
+                                 Height="20"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 x:Name="Cama"
+                        />
+                    </Border>
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
                     <Label  Content="Edificio" Margin="20,0,20,0"/>
-                    <TextBox x:Name="Edificio" Width="100" />
+                    <Border CornerRadius="5" Width="100" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                        <TextBox Width="100"
+                                 Height="20"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 x:Name="Edificio"
+                        />
+                    </Border>
                 </StackPanel>
             </Grid>
             <Button Height="30" Width="100" Margin="212,20,212,0" Content="Listo" x:Name="agregar"/>

@@ -53,7 +53,8 @@ namespace SantaTecla.WPF.Views
                 }
                 else
                 {
-                    MessageBox.Show("Selecciona una opcion");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Selecciones una opcion", "Informacion de ayuda", MessageBoxButton.OK,
+                        MessageBoxImage.Stop);
                 }
             };
         }

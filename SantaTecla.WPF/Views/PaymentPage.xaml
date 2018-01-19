@@ -51,22 +51,86 @@
                     <Label Content="Rellenese en caso de forma de pago con tarjeta"></Label>
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <Label  Content="Numero de tarjeta:" Margin="0,0,20,0"/>
-                        <TextBox x:Name="TarjetaNum" MaxLength="4" Width="50" Margin="0,0,20,0"/>
-                        <TextBox x:Name="TarjetaNum2" MaxLength="4" Width="50" Margin="0,0,20,0"/>
-                        <TextBox x:Name="TarjetaNum3" MaxLength="4" Width="50" Margin="0,0,20,0"/>
-                        <TextBox x:Name="TarjetaNum4" MaxLength="4" Width="50" Margin="0,0,20,0"/>
+                        <Border CornerRadius="5" Padding="2" Margin="0,0,20,0" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="50"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaNum"
+                            />
+                        </Border>
+                        <Border CornerRadius="5" Padding="2" Margin="0,0,20,0" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="50"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaNum2"
+                            />
+                        </Border>
+                        <Border CornerRadius="5" Padding="2" Margin="0,0,20,0" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="50"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaNum3"
+                            />
+                        </Border>
+                        <Border CornerRadius="5" Padding="2" Margin="0,0,20,0" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="50"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaNum4"
+                            />
+                        </Border>
                     </StackPanel>
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <Label  Content="CVV:"/>
-                        <TextBox x:Name="TarjetaCVV" Width="70" MaxLength="4" Margin="0,0,20,0"/>
+                        <Border CornerRadius="5" Padding="2" Margin="0,0,20,0" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="70"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaCVV"
+                            />
+                        </Border>
                         <Label  Content="Fecha vencimiento (Mes/año):"/>
-                        <TextBox x:Name="TarjetaFechaMes" Width="40"/>
+                        <Border CornerRadius="5" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="40"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaFechaMes"
+                            />
+                        </Border>
                         <Label  Content="/"/>
-                        <TextBox x:Name="TarjetaFechaAno" Width="40"/>
+                        <Border CornerRadius="5" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="40"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaFechaAno"
+                            />
+                        </Border>
                     </StackPanel>
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <Label  Content="Nombre del titular:"/>
-                        <TextBox x:Name="TarjetaTitular" Width="300"/>
+                        <Border CornerRadius="5" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="300"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="TarjetaTitular"
+                            />
+                        </Border>
                     </StackPanel>
                 </StackPanel>
             </Grid>

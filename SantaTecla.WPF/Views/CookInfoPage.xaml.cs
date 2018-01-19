@@ -34,9 +34,11 @@ namespace SantaTecla.WPF.Views
             var paciente = await ser.GetPacienteById(StaticHelper.SelectedId);
             paciente.Historial.Contradicciones += "\n"+contradicciones.Text;
             if (await ser.PutPaciente(StaticHelper.SelectedId, paciente))
-                MessageBox.Show("Guardado ");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Guardado con éxito", "Whooou", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
             else
-                MessageBox.Show("No se guardo");
+                Xceed.Wpf.Toolkit.MessageBox.Show("No se ha podido guardar", "Que mal (Error)", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             LoginPage login = new LoginPage();
             login.Show();
             this.Close();

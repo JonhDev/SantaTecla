@@ -80,7 +80,8 @@ namespace SantaTecla.WPF.ViewModels
                     //personal.Show();
                     break;
                 default:
-                    MessageBox.Show("Error");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Ha ocurrido un error de navegación", "Error", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                     break;
             }
 

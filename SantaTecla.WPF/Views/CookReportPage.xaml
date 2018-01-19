@@ -26,7 +26,14 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Id Paciente"/>
-                    <TextBox x:Name="IdPaciente" Width="200"/>
+                    <Border CornerRadius="5" Padding="2" Width="200" BorderThickness="1" BorderBrush="DarkCyan">
+                        <TextBox Width="200"
+                                 Height="20"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 x:Name="IdPaciente"
+                        />
+                    </Border>
                 </StackPanel>
                 
                 <CheckBox x:Name="Alergia" Margin="20,0,0,0" Content="Es alergico"/>

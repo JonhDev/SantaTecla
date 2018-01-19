@@ -7,17 +7,52 @@
         xmlns:wpf="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
         mc:Ignorable="d" Height="390" Width="376">
     <Grid>
+        <Label Content="Datos del usuario" FontWeight="Bold"></Label>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top"/>
         <Label Content="Apellidos" HorizontalAlignment="Left" Margin="26,72,0,0" VerticalAlignment="Top"/>
         <Label Content="Puesto" HorizontalAlignment="Left" Margin="26,105,0,0" VerticalAlignment="Top"/>
-        <Label Content="LOGIN" HorizontalAlignment="Left" Margin="64,153,0,0" VerticalAlignment="Top"/>
+        <Label Content="Datos de inicio de sesión" HorizontalAlignment="Left" Margin="0,153,0,0" FontWeight="Bold" VerticalAlignment="Top"/>
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="22,199,0,0" VerticalAlignment="Top"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="26,234,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nombre" HorizontalAlignment="Left" Height="23" Margin="111,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="apellido" HorizontalAlignment="Left" Height="23" Margin="111,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="puesto" HorizontalAlignment="Left" Height="23" Margin="111,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="usuario" HorizontalAlignment="Left" Height="23" Margin="129,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="contra" HorizontalAlignment="Left" Height="23" Margin="129,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="22,234,0,0" VerticalAlignment="Top"/>
+        <Border CornerRadius="5" HorizontalAlignment="Left" Height="23" Margin="111,37,0,0" VerticalAlignment="Top" Width="120" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+            <TextBox Width="150"
+                     Height="20"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     x:Name="nombre"
+            />
+        </Border>
+        <Border CornerRadius="5" Padding="2" HorizontalAlignment="Left" Height="23" Margin="111,75,0,0" VerticalAlignment="Top" Width="120" BorderThickness="1" BorderBrush="DarkCyan">
+            <TextBox Width="150"
+                     Height="20"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     x:Name="apellido"
+            />
+        </Border>
+        <Border CornerRadius="5" Padding="2" HorizontalAlignment="Left" Height="23" Margin="111,107,0,0" VerticalAlignment="Top" Width="120" BorderThickness="1" BorderBrush="DarkCyan">
+            <ComboBox Width="150"
+                     Height="20"
+                     BorderThickness="0"
+                     x:Name="puesto"
+            />
+        </Border>
+        <Border CornerRadius="5" Padding="2" HorizontalAlignment="Left" Height="23" Margin="129,203,0,0" VerticalAlignment="Top" Width="120" BorderThickness="1" BorderBrush="DarkCyan">
+            <TextBox Width="150"
+                     Height="20"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     x:Name="usuario"
+            />
+        </Border>
+        <Border CornerRadius="5" Padding="2" HorizontalAlignment="Left" Height="23" Margin="129,237,0,0" VerticalAlignment="Top" Width="120" BorderThickness="1" BorderBrush="DarkCyan">
+            <TextBox Width="150"
+                     Height="20"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     x:Name="contra"
+            />
+        </Border>
         <Button x:Name="aceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="94,304,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="231,304,0,0" VerticalAlignment="Top" Width="75"/>
 

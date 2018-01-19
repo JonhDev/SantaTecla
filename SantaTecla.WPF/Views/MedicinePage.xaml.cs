@@ -52,13 +52,16 @@ namespace SantaTecla.WPF.Views
 
                 medicamento.Cantidad = int.Parse(cantidad.Text);
                 if (await service.PutMedicamento(id, medicamento))
-                    MessageBox.Show("Medicamento Agregado");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Se ha agregado", "Todo bien", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 else
-                    MessageBox.Show("Error al agregar");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al agregar", "Un error ha surgido", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
 
             }
             else
-                MessageBox.Show("Ingrese Referencia");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Falto referencia", "Suele ocurrir", MessageBoxButton.OK,
+                    MessageBoxImage.Stop);
 
             Loading.Visibility = Visibility.Collapsed;
 
@@ -73,10 +76,12 @@ namespace SantaTecla.WPF.Views
                 SantaTeclaService service = new SantaTeclaService();
                 var medicamento = await service.GetMedicamentosByNameOrId(id);
                 
-                MessageBox.Show($"Disponible: {medicamento.Cantidad}");
+                Xceed.Wpf.Toolkit.MessageBox.Show($"Cantidad disponible: {medicamento.Cantidad}", "Informacion solicitada", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("Ingrese Referencia");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Falto referencia", "Upssss", MessageBoxButton.OK,
+                    MessageBoxImage.Stop);
             Loading.Visibility = Visibility.Collapsed;
         }
     }

@@ -30,15 +30,31 @@
                 <StackPanel>
                     <Label Content="Ingresa el ID"
                            Margin="20,0,20,0"/>
-
-                    <TextBox x:Name="Id" Margin="20,0,20,0" />
+                    <Border CornerRadius="5" Margin="20,0,20,0" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                        <TextBox Width="40"
+                                 Height="20"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 MaxLength="4"
+                                 x:Name="Id"
+                        />
+                    </Border>
                 </StackPanel>
                 <Button x:Name="Consulta" Grid.Column="1" Content="Buscar" Margin="10,17,10,17"/>
 
             </Grid>
 
             <Label Margin="10,0,10,0" Content="Describa por que el paciente fue trasladado a urgencias:"/>
-            <TextBox Margin="10,0,10,0" Height="200" x:Name="info"/>
+
+            <Border CornerRadius="5" Margin="10,0,10,0" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                <TextBox
+                         Height="200"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         MaxLength="4"
+                         x:Name="info"
+                />
+            </Border>
             
             <Button x:Name="AddReport" Content="Agregar reporte" Margin="0,10,0,0" Width="120" Click="Button_Click"/>
             <Grid x:Name="Loading" Visibility="Hidden">

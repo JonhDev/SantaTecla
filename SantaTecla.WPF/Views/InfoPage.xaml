@@ -31,14 +31,21 @@
                     <Label Content="Ingresa el ID a consultar"
                            Margin="20,0,20,0"/>
 
-                    <TextBox x:Name="Id" Margin="20,0,20,0" />
+                    <Border CornerRadius="5" Margin="20,10,20,10" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                        <TextBox
+                                 Height="20"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 x:Name="Id"
+                        />
+                    </Border>
                     <Button x:Name="Lista" HorizontalAlignment="Center" Width="100" Content="Lista"/>
                     <StackPanel Margin="20,10,20,0" Orientation="Horizontal">
                         <RadioButton x:Name="Pac" IsChecked="True" Content="Paciente" GroupName="Quien" Margin="0,0,30,0"/>
                         <RadioButton x:Name="Per" Content="Personal" GroupName="Quien"/>
                     </StackPanel>
                 </StackPanel>
-                <Button x:Name="Consulta" Grid.Column="1" Content="Buscar" Margin="10,17,10,17"/>
+                <Button x:Name="Consulta" Grid.Column="1" Content="Buscar" Margin="10,40"/>
 
             </Grid>
 
@@ -47,7 +54,14 @@
             </Grid>
 
             <Label Margin="10,0,10,0" Content="Informacion:"/>
-            <TextBox Margin="10,0,10,0" x:Name="infoText" Height="200"/>
+            <Border CornerRadius="5" Margin="10,0,10,0" Height="200" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                <TextBox
+                         Height="200"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         x:Name="infoText"
+                />
+            </Border>
 
             <Button Content="Finalizar" Margin="0,10,0,0" Width="100" x:Name="finalizar"/>
         </StackPanel>

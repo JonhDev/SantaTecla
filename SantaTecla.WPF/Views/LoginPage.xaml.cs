@@ -38,7 +38,8 @@ namespace SantaTecla.WPF.Views
             if (key != 0)
             {
 
-                MessageBox.Show("BIENVENIDO");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Bienvenido de nuevo, accesando a su panel", "¡Buen dia!", MessageBoxButton.OK,
+                    MessageBoxImage.None);
                 this.Hide();
                 ControlWindow control = new ControlWindow();
                 control.Show(key);
@@ -47,7 +48,8 @@ namespace SantaTecla.WPF.Views
             }
             else
             {
-                MessageBox.Show("usuario invalido");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Usuario o contraseña incorrectos, rectificalos", "Alto ahi", MessageBoxButton.OK,
+                    MessageBoxImage.Stop);
                 Loading.Visibility = Visibility.Collapsed;
             }
 

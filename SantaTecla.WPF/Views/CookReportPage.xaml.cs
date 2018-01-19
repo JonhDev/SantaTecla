@@ -50,17 +50,20 @@ namespace SantaTecla.WPF.Views
                 Loading.Visibility = Visibility.Visible;
                 if (await service.PutPaciente(id, pac))
                 {
-                    MessageBox.Show("Añadido al historial");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Se ha agregado al historial", "Un caso de éxito", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                     Loading.Visibility = Visibility.Collapsed;
                 }
                 else
-                    MessageBox.Show("Error al actualizar");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al guardar", "Upssss", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
             }
             else
-                MessageBox.Show("Ingrese ID");
+                Xceed.Wpf.Toolkit.MessageBox.Show("Falta ID", "Oye te falto algo...", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
 
-            
-            
+
+
         }
     }
 }

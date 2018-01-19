@@ -30,7 +30,15 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel>
                         <Label Margin="10,0,10,0" Content="ID del paciente"/>
-                        <TextBox Margin="10,0,10,20" x:Name="IdPaciente"/>
+                        <Border CornerRadius="5" Margin="10,0,10,20" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                            <TextBox Width="40"
+                                     Height="20"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     MaxLength="4"
+                                     x:Name="IdPaciente"
+                            />
+                        </Border>
                     </StackPanel>
                     <Button Grid.Column="1" Content="Lista pacientes" Margin="3,15,3,15"/>
                 </Grid>
@@ -38,7 +46,15 @@
                 <DatePicker x:Name="date" HorizontalAlignment="Right" Margin="10,0,15,0"/>
                 
                 <Label Margin="10,0,10,0" Content="Diagnostico paciente:"/>
-                <TextBox Margin="10,0,10,0" Height="200" x:Name="diagnostico"/>
+
+                <Border CornerRadius="5" Margin="10,0,10,0" Padding="2" BorderThickness="1" BorderBrush="DarkCyan">
+                    <TextBox
+                             Height="200"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             x:Name="diagnostico"
+                    />
+                </Border>
                 <Button Content="Listo" Margin="190,10,190,0" Width="100" x:Name="listo" />
                 <Grid x:Name="Loading" Visibility="Collapsed">
                     <wpf:LoadingIndicator Margin="10" SpeedRatio="1" Style="{StaticResource LoadingIndicatorArcsRingStyleKey}" Foreground="CornflowerBlue" IsActive="True"></wpf:LoadingIndicator>

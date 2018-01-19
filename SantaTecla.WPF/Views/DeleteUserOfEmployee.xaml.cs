@@ -33,7 +33,8 @@ namespace SantaTecla.WPF.Views
                     DeleteById(int.Parse(IdToDelete.Text)).GetAwaiter();
                 }
                 else
-                    MessageBox.Show("Inserte Id ");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Falto el ID", "Vaya, que cosas...", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
             };
 
             
@@ -67,17 +68,21 @@ namespace SantaTecla.WPF.Views
             if (Personal.IsChecked == true)
             {
                 if (await service.DeletePersonal(int.Parse(IdToDelete.Text)))
-                    MessageBox.Show("Paciente eliminado");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Paciente eliminado con éxito", "Listo", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 else
-                    MessageBox.Show("Error al eliminar");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al eliminar", "Un error ha surgido", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                 Loading.Visibility = Visibility.Collapsed;
             }
             else
             {
                 if (await service.DeletePaciente(int.Parse(IdToDelete.Text)))
-                    MessageBox.Show("Empleado eliminado");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Empleado eliminado", "Buenas noticias", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 else
-                    MessageBox.Show("Error al eliminar");
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al eliminar", "Houston tenemos un problema", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                 Loading.Visibility = Visibility.Collapsed;
             }
 
