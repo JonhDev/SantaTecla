@@ -36,6 +36,22 @@ namespace SantaTecla.Services
             else
                 return null;
         }
+        public async Task<bool> BedCheck(int edf, int bed,int id)
+        {
+            var answer = await httpClient.GetAsync(ConectionHelpers.MainURL + ConectionHelpers.PacientesURL);
+            var json = await answer.Content.ReadAsStringAsync();
+            List<Pacientes> pacientes = JsonConvert.DeserializeObject<List<Pacientes>>(json);
+            var patient = pacientes.FirstOrDefault(pac => pac.Internado.IdEdificio == edf);
+            if (patient != null)
+            {
+                if (patient.Internado.IdCama != bed || patient.NSS == id)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return true;
+        }
 
         public async Task<bool> PostPaciente(Pacientes newPaciente)
         {

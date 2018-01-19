@@ -88,14 +88,20 @@ namespace SantaTecla.WPF.Views
                     pac.Direccion = direccion.Text;
                     pac.FormaDePago = _pay;
                     pac.Historial.Antecendentes += "\n"+historial.Text;
-                    pac.Internado.IdCama = int.Parse(Cama.Text);
-                    pac.Internado.IdEdificio = int.Parse(Edificio.Text);
                     pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
-
-                    if (await serv.PutPaciente(id, pac))
-                        MessageBox.Show("Paciente actualizado");
+                    if (await serv.BedCheck(int.Parse(Edificio.Text), int.Parse(Cama.Text),id))
+                    {
+                        pac.Internado.IdCama = int.Parse(Cama.Text);
+                        pac.Internado.IdEdificio = int.Parse(Edificio.Text);
+                        if (await serv.PutPaciente(id, pac))
+                            MessageBox.Show("Paciente actualizado");
+                        else
+                            MessageBox.Show("Error verifique los campos");
+                    }
                     else
-                        MessageBox.Show("Error verifique los campos");
+                    {
+                        MessageBox.Show("Cama No Disponible");
+                    }                    
                 }
                 else
                 {
@@ -108,12 +114,7 @@ namespace SantaTecla.WPF.Views
                     {
                         Antecendentes = historial.Text
                     };
-                    pac.Internado = new Internado()
-                    {
-                        IdCama = int.Parse(Cama.Text),
-                        IdEdificio = int.Parse(Cama.Text),
-                        IdInternado = 0
-                    };
+                    
                     pac.Sexo = sexMasc.IsChecked.Value ? "masculino" : "femenino";
                     pac.Citas = new Citas()
                     {
@@ -122,16 +123,29 @@ namespace SantaTecla.WPF.Views
                         NoCita = 0
                     };
 
-                    if (await serv.PostPaciente(pac))
+                    if (await serv.BedCheck(int.Parse(Edificio.Text), int.Parse(Cama.Text),id))
                     {
-                        MessageBox.Show("Paciente agregado");
-                        nombre.Text = "";
-                        edad.Text = "";
-                        direccion.Text = "";
-                        historial.Text = "";
+                        pac.Internado = new Internado()
+                        {
+                            IdCama = int.Parse(Cama.Text),
+                            IdEdificio = int.Parse(Cama.Text),
+                            IdInternado = 0
+                        };
+                        if (await serv.PostPaciente(pac))
+                        {
+                            MessageBox.Show("Paciente agregado");
+                            nombre.Text = "";
+                            edad.Text = "";
+                            direccion.Text = "";
+                            historial.Text = "";
+                        }
+                        else
+                            MessageBox.Show("Error");
                     }
                     else
-                        MessageBox.Show("Error");
+                    {
+                        MessageBox.Show("Cama No Disponible");
+                    }
                 }
 
                 Loading.Visibility = Visibility.Collapsed;
